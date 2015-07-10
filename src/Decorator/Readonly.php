@@ -1,8 +1,12 @@
 <?php
 
-namespace Nayjest\Collection;
+namespace Nayjest\Collection\Decorator;
 
-class ReadonlyDecorator implements CollectionReadInterface
+use Nayjest\Collection\CollectionDataTrait;
+use Nayjest\Collection\CollectionReadInterface;
+use Nayjest\Collection\CollectionReadTrait;
+
+class Readonly implements CollectionReadInterface
 {
     use CollectionDataTrait;
     use CollectionReadTrait;
