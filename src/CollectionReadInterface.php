@@ -6,11 +6,19 @@ use IteratorAggregate;
 
 interface CollectionReadInterface extends IteratorAggregate, Countable
 {
+    /**
+     * Returns collection items in array.
+     *
+     * @return array
+     */
     public function toArray();
 
+    /**
+     * Returns true if collection is empty.
+     *
+     * @return bool
+     */
     public function isEmpty();
-
-    public function has($item);
 
     public function first();
 
