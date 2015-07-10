@@ -12,7 +12,9 @@ trait CollectionWriteTrait
 {
 
     /**
-     * @return &array
+     * Returns reference to array storing collection items.
+     *
+     * @return array
      */
     abstract protected function &items();
 
