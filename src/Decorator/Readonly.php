@@ -2,6 +2,7 @@
 
 namespace Nayjest\Collection\Decorator;
 
+use InvalidArgumentException;
 use Nayjest\Collection\CollectionDataTrait;
 use Nayjest\Collection\CollectionReadInterface;
 use Nayjest\Collection\CollectionReadTrait;
@@ -21,6 +22,8 @@ class Readonly implements CollectionReadInterface
             $this->data = $collection->toArray();
         } elseif(is_array($collection)) {
             $this->data = $collection;
+        } else {
+            throw new InvalidArgumentException;
         }
     }
 
