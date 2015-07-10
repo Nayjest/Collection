@@ -56,6 +56,8 @@ trait CollectionWriteTrait
     public function clear()
     {
         $items =& $this->items();
+        // It's not mistake that $items never used after assigning empty array.
+        // Yep, it really clears the collection.
         $items = [];
         return $this;
     }
