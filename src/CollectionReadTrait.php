@@ -68,7 +68,9 @@ trait CollectionReadTrait
      */
     public function getIterator()
     {
-        // IteratorIterator used to deny unseting and modifying values and keys while iterating
+        // Modifying or deleting values while iterating will not affect collection data.
+        // ArrayIterator wrapped to IteratorIterator to deny modifying and deleting values while iterating.
+        // That will help to avoid possible errors in client code.
         return new IteratorIterator(new ArrayIterator($this->items()));
     }
 
@@ -87,10 +89,13 @@ trait CollectionReadTrait
         return $this->createCollection($filtered);
     }
 
-    public function find(callable $callback)
+    public function find(callable $callback, array $optionalArguments = null)
     {
         foreach ($this->items() as $item) {
-            if (call_user_func($callback, $item)) {
+            $arguments = ($optionalArguments === null)
+                ? [$item]
+                : array_merge([$item], $optionalArguments);
+            if (call_user_func_array($callback, $arguments)) {
                 return $item;
             }
         }

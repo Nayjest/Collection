@@ -25,4 +25,6 @@ interface CollectionReadInterface extends IteratorAggregate, Countable
     public function contains($item);
 
     public function filter(callable $callback);
+
+    public function find(callable $callback, array $optionalArguments = null);
 }
