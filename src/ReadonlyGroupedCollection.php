@@ -5,9 +5,11 @@ namespace Nayjest\Collection;
 /**
  * Class ReadonlyGroupedCollection
  *
+ * @draft
+ *
  * @property GroupedCollection $collection
  */
-class ReadonlyGroupedCollection extends ReadonlyCollection
+class ReadonlyGroupedCollection extends ReadonlyDecorator
 {
     public function getGroups()
     {

@@ -2,8 +2,10 @@
 
 namespace Nayjest\Collection;
 
-use Presentation\Framework\Common\HasGroupsTrait;
-
+/**
+ * Class GroupedCollection
+ * @draft
+ */
 class GroupedCollection extends Collection
 {
     use HasGroupsTrait;
