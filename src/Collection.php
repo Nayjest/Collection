@@ -1,4 +1,5 @@
 <?php
+
 namespace Nayjest\Collection;
 
 class Collection implements CollectionInterface

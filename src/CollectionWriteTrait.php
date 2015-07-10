@@ -96,4 +96,20 @@ trait CollectionWriteTrait
         }
         return $this;
     }
+
+    /**
+     * Creates collection of items.
+     *
+     * Override it if you need to implement
+     * derived collection that requires specific initialization.
+     *
+     * @param array $items
+     * @return static
+     */
+    protected function createCollection(array $items)
+    {
+        $collection = new static;
+        $collection->setItems($items);
+        return $collection;
+    }
 }

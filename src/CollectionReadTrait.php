@@ -14,6 +14,17 @@ trait CollectionReadTrait
     abstract protected function &items();
 
     /**
+     * Creates collection of items.
+     *
+     * Override it if you need to implement
+     * derived collection that requires specific initialization.
+     *
+     * @param array $items
+     * @return static
+     */
+    abstract protected function createCollection(array $items);
+
+    /**
      * Returns collection items in array.
      *
      * @return array
@@ -49,7 +60,7 @@ trait CollectionReadTrait
      */
     public function contains($item)
     {
-        return in_array($item, $this->items, true);
+        return in_array($item, $this->items(), true);
     }
 
     /**
@@ -58,12 +69,12 @@ trait CollectionReadTrait
     public function getIterator()
     {
         // IteratorIterator used to deny unseting and modifying values and keys while iterating
-        return new IteratorIterator(new ArrayIterator($this->items));
+        return new IteratorIterator(new ArrayIterator($this->items()));
     }
 
     public function first()
     {
-        return $this->isEmpty() ? null : array_values($this->items)[0];
+        return $this->isEmpty() ? null : array_values($this->items())[0];
     }
 
     /**
@@ -72,33 +83,17 @@ trait CollectionReadTrait
      */
     public function filter(callable $callback)
     {
-        $filtered = array_filter($this->items, $callback);
+        $filtered = array_filter($this->items(), $callback);
         return $this->createCollection($filtered);
     }
 
     public function find(callable $callback)
     {
-        foreach ($this as $item) {
+        foreach ($this->items() as $item) {
             if (call_user_func($callback, $item)) {
                 return $item;
             }
         }
         return null;
-    }
-
-    /**
-     * Creates collection of items.
-     *
-     * Override it if you need to implement
-     * derived collection that requires specific initialization.
-     *
-     * @param array $items
-     * @return static
-     */
-    protected function createCollection(array $items)
-    {
-        $collection = new static;
-        $collection->setItems($items);
-        return $collection;
     }
 }
