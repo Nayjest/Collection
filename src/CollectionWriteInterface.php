@@ -10,8 +10,6 @@ use Traversable;
  * Interface CollectionWriteInterface
  *
  * The interface describes methods that changes collection.
- *
- * @internal
  */
 interface CollectionWriteInterface
 {

@@ -13,12 +13,6 @@ class ReadonlyCollection implements CollectionReadInterface
     private $collection;
     private $data;
 
-    protected function &items()
-    {
-        $this->data = $this->collection->toArray();
-        return $this->data;
-    }
-
     /**
      * @param CollectionReadInterface|array $collection
      */
@@ -29,8 +23,12 @@ class ReadonlyCollection implements CollectionReadInterface
 
     protected function createCollection(array $items)
     {
-        $collection = new Collection();
-        $collection->setItems($items);
-        return new static($collection);
+        return new static(new Collection($items));
+    }
+
+    protected function &items()
+    {
+        $this->data = $this->collection->toArray();
+        return $this->data;
     }
 }
