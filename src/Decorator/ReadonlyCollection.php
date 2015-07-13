@@ -2,33 +2,35 @@
 
 namespace Nayjest\Collection\Decorator;
 
-use InvalidArgumentException;
-use Nayjest\Collection\CollectionDataTrait;
+use Nayjest\Collection\Collection;
 use Nayjest\Collection\CollectionReadInterface;
 use Nayjest\Collection\CollectionReadTrait;
 
 class ReadonlyCollection implements CollectionReadInterface
 {
-    use CollectionDataTrait;
     use CollectionReadTrait;
+
+    private $collection;
+    private $data;
+
+    protected function &items()
+    {
+        $this->data = $this->collection->toArray();
+        return $this->data;
+    }
 
     /**
      * @param CollectionReadInterface|array $collection
      */
-    public function __construct($collection)
+    public function __construct(CollectionReadInterface $collection)
     {
-        if ($collection instanceof CollectionReadInterface)
-        {
-            $this->data = $collection->toArray();
-        } elseif(is_array($collection)) {
-            $this->data = $collection;
-        } else {
-            throw new InvalidArgumentException;
-        }
+        $this->collection = $collection;
     }
 
     protected function createCollection(array $items)
     {
-        return new static($items);
+        $collection = new Collection();
+        $collection->setItems($items);
+        return new static($collection);
     }
 }
