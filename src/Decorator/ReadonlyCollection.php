@@ -7,7 +7,7 @@ use Nayjest\Collection\CollectionDataTrait;
 use Nayjest\Collection\CollectionReadInterface;
 use Nayjest\Collection\CollectionReadTrait;
 
-class Readonly implements CollectionReadInterface
+class ReadonlyCollection implements CollectionReadInterface
 {
     use CollectionDataTrait;
     use CollectionReadTrait;
