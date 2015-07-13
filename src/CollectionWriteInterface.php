@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Nayjest\Collection;
-
 
 use Traversable;
 

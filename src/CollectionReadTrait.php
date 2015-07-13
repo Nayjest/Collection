@@ -7,7 +7,6 @@ use IteratorIterator;
 
 trait CollectionReadTrait
 {
-
     /**
      * Returns reference to array storing collection items.
      *
