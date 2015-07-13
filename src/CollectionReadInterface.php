@@ -4,6 +4,11 @@ namespace Nayjest\Collection;
 use Countable;
 use IteratorAggregate;
 
+/**
+ * Interface CollectionReadInterface
+ *
+ * The interface describes methods of immutable collection.
+ */
 interface CollectionReadInterface extends IteratorAggregate, Countable
 {
     /**
