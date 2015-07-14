@@ -11,7 +11,7 @@ class CompositeCollection implements CollectionReadInterface
 
     /** @var array|CollectionReadInterface[]  */
     private $collections = [];
-    private $data = [];
+    private $data;
 
     /**
      * @return array
