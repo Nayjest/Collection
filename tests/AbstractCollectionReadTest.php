@@ -1,4 +1,5 @@
 <?php
+
 namespace Nayjest\Collection\Test;
 
 abstract class AbstractCollectionReadTest extends AbstractCollectionTest
