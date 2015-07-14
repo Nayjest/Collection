@@ -23,7 +23,13 @@ trait CollectionReadTrait
      * @param array $items
      * @return static
      */
-    abstract protected function createCollection(array $items);
+    protected function createCollection(array $items)
+    {
+        $collection = new static;
+        $itemsRef = &$collection->items();
+        $itemsRef = $items;
+        return $collection;
+    }
 
     /**
      * Returns collection items in array.
