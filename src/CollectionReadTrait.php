@@ -127,4 +127,9 @@ trait CollectionReadTrait
         }
         return null;
     }
+
+    public function isWritable()
+    {
+        return $this instanceof CollectionWriteInterface;
+    }
 }

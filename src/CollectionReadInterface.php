@@ -68,4 +68,10 @@ interface CollectionReadInterface extends IteratorAggregate, Countable
      * @return static filtered collection
      */
     public function find(callable $callback, array $optionalArguments = null);
+
+    /**
+     * Returns true if collection implements CollectionWriteInterface
+     * @return bool
+     */
+    public function isWritable();
 }
