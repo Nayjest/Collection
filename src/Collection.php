@@ -10,12 +10,7 @@ namespace Nayjest\Collection;
  */
 class Collection implements CollectionInterface
 {
-    use CollectionDataTrait;
-    use CollectionReadTrait;
-    use CollectionWriteTrait {
-        CollectionWriteTrait::createCollection
-        insteadof CollectionReadTrait;
-    }
+    use CollectionTrait;
 
     public function __construct(array $items = null)
     {
