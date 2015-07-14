@@ -44,7 +44,9 @@ class CompositeCollection implements CollectionReadInterface
 
     protected function createCollection(array $items)
     {
-        return new static([new Collection($items)]);
+        $collection = new static();
+        $collection->setCollections([new Collection($items)]);
+        return $collection;
     }
 
     /**
