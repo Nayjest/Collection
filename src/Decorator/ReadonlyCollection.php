@@ -14,7 +14,7 @@ class ReadonlyCollection implements CollectionReadInterface
     private $data;
 
     /**
-     * @param CollectionReadInterface|array $collection
+     * @param CollectionReadInterface $collection
      */
     public function __construct(CollectionReadInterface $collection)
     {
