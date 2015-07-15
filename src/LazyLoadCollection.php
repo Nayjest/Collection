@@ -5,7 +5,7 @@ namespace Nayjest\Collection;
 class LazyLoadCollection implements CollectionInterface
 {
     use CollectionTrait {
-        CollectionTrait::items as itemsInternal;
+        CollectionTrait::items as private itemsInternal;
     }
 
     private $initialized = false;
