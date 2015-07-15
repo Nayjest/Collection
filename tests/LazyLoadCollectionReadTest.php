@@ -2,7 +2,6 @@
 
 namespace Nayjest\Collection\Test;
 
-
 use Nayjest\Collection\LazyLoadCollection;
 use RuntimeException;
 
