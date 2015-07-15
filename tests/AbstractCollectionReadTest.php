@@ -48,6 +48,25 @@ abstract class AbstractCollectionReadTest extends AbstractCollectionTest
             $test,
             $res
         );
+
+        $odd = function($var, $arg2) {
+            return $arg2 === 7 ? ($var & 1) :false;
+        };
+
+        $res = $this->collection->filter($odd, [7])->toArray();
+        sort($res);
+        self::assertEquals(
+            $test,
+            $res
+        );
+
+        $res = $this->collection->filter($odd, [8])->toArray();
+        sort($res);
+        self::assertNotEquals(
+            $test,
+            $res
+        );
+
     }
 
     public function testFind()

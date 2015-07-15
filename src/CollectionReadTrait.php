@@ -100,11 +100,18 @@ trait CollectionReadTrait
      * the result collection.
      *
      * @param callable $callback the callback function to use
+     * @param array|null $optionalArguments [optional] additional arguments passed to callback
      *
      * @return static filtered collection
      */
-    public function filter(callable $callback)
+    public function filter(callable $callback, array $optionalArguments = null)
     {
+        if ($optionalArguments !== null) {
+            $callback = function ($item) use ($callback, $optionalArguments) {
+                $arguments = array_merge([$item], $optionalArguments);
+                return call_user_func_array($callback, $arguments);
+            };
+        }
         $filtered = array_filter($this->items(), $callback);
         return $this->createCollection($filtered);
     }

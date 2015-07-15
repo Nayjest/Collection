@@ -49,10 +49,11 @@ interface CollectionReadInterface extends IteratorAggregate, Countable
      * the result collection.
      *
      * @param callable $callback the callback function to use
+     * @param array|null $optionalArguments [optional] additional arguments passed to callback
      *
      * @return static filtered collection
      */
-    public function filter(callable $callback);
+    public function filter(callable $callback, array $optionalArguments = null);
 
 
     /**
