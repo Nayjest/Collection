@@ -5,6 +5,11 @@ namespace Nayjest\Collection;
 use ArrayIterator;
 use IteratorIterator;
 
+/**
+ * Trait CollectionReadTrait
+ *
+ * @implements \Nayjest\Collection\CollectionWriteInterface
+ */
 trait CollectionReadTrait
 {
     /**

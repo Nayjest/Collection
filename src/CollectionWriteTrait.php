@@ -6,7 +6,7 @@ use Traversable;
 
 /**
  * Trait CollectionWriteTrait
- *
+ * @implements \Nayjest\Collection\CollectionWriteInterface
  */
 trait CollectionWriteTrait
 {
