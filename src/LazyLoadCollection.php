@@ -7,7 +7,6 @@ namespace Nayjest\Collection;
  *
  * LazyLoadCollection is a collection that's initialized by callback
  * when it's accessed first time.
- *
  */
 class LazyLoadCollection implements CollectionInterface
 {
