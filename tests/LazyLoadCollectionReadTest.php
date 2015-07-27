@@ -11,12 +11,13 @@ class LazyLoadCollectionReadTest extends AbstractCollectionReadTest
     protected function makeCollection($data)
     {
         $this->initializerCalled = false;
-        return new LazyLoadCollection(function() use($data) {
-            if ($this->initializerCalled)
-            {
+
+        return new LazyLoadCollection(function () use ($data) {
+            if ($this->initializerCalled) {
                 throw new RuntimeException('Initializer called more than once.');
             }
             $this->initializerCalled = true;
+
             return $data;
         });
     }

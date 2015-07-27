@@ -7,8 +7,7 @@ abstract class AbstractCollectionReadTest extends AbstractCollectionTest
     public function testIterator()
     {
         $res = [];
-        foreach($this->collection as $v)
-        {
+        foreach ($this->collection as $v) {
             $res[] = $v;
         }
         self::assertEquals($this->fixture(), $res);
@@ -39,7 +38,7 @@ abstract class AbstractCollectionReadTest extends AbstractCollectionTest
 
     public function testFilter()
     {
-        $odd = function($var) { return($var & 1); };
+        $odd = function ($var) { return($var & 1); };
         $res = $this->collection->filter($odd)->toArray();
         sort($res);
         $test = array_filter($this->fixture(), $odd);
@@ -49,8 +48,8 @@ abstract class AbstractCollectionReadTest extends AbstractCollectionTest
             $res
         );
 
-        $odd = function($var, $arg2) {
-            return $arg2 === 7 ? ($var & 1) :false;
+        $odd = function ($var, $arg2) {
+            return $arg2 === 7 ? ($var & 1) : false;
         };
 
         $res = $this->collection->filter($odd, [7])->toArray();
@@ -66,12 +65,11 @@ abstract class AbstractCollectionReadTest extends AbstractCollectionTest
             $test,
             $res
         );
-
     }
 
     public function testFind()
     {
-        $even = function($var) { return(!($var & 1)); };
+        $even = function ($var) { return(!($var & 1)); };
         $res = $this->collection->find($even);
         self::assertEquals(2, $res);
     }

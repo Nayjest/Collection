@@ -1,8 +1,9 @@
 <?php
+
 namespace Nayjest\Collection;
 
 /**
- * Class ObjectCollection
+ * Class ObjectCollection.
  *
  * Collection of objects.
  */
@@ -14,6 +15,7 @@ class ObjectCollection implements CollectionInterface
 
     /**
      * @param string $className
+     *
      * @return static
      */
     public function findByType($className)

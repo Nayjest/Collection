@@ -15,6 +15,7 @@ abstract class AbstractCollectionTest extends PHPUnit_Framework_TestCase
 
     /**
      * @param $data
+     *
      * @return CollectionReadInterface
      */
     abstract protected function makeCollection($data);
@@ -22,7 +23,6 @@ abstract class AbstractCollectionTest extends PHPUnit_Framework_TestCase
     {
         return [1,2,3,4,5];
     }
-
 
     public function setUp()
     {

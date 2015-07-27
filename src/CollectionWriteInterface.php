@@ -5,7 +5,7 @@ namespace Nayjest\Collection;
 use Traversable;
 
 /**
- * Interface CollectionWriteInterface
+ * Interface CollectionWriteInterface.
  *
  * The interface describes methods that changes collection.
  */
@@ -16,6 +16,7 @@ interface CollectionWriteInterface
      *
      * @param $item
      * @param bool $prepend false by default
+     *
      * @return $this
      */
     public function addItem($item, $prepend = false);
@@ -24,7 +25,8 @@ interface CollectionWriteInterface
      * Adds items to collection.
      *
      * @param array|Traversable $items
-     * @param bool $prepend false by default
+     * @param bool              $prepend false by default
+     *
      * @return $this
      */
     public function addItems($items, $prepend = false);
@@ -40,6 +42,7 @@ interface CollectionWriteInterface
      * Removes items equals to specified value from collection.
      *
      * @param $item
+     *
      * @return $this
      */
     public function remove($item);
@@ -48,8 +51,8 @@ interface CollectionWriteInterface
      * Sets collection items.
      *
      * @param array|Traversable $items
+     *
      * @return $this
      */
     public function setItems($items);
-
 }

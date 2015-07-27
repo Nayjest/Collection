@@ -29,6 +29,7 @@ class ReadonlyCollection implements CollectionReadInterface
     protected function &items()
     {
         $this->data = $this->collection->toArray();
+
         return $this->data;
     }
 }

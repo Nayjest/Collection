@@ -6,7 +6,7 @@ use ArrayIterator;
 use IteratorIterator;
 
 /**
- * Trait CollectionReadTrait
+ * Trait CollectionReadTrait.
  *
  * @implements \Nayjest\Collection\CollectionWriteInterface
  */
@@ -26,13 +26,15 @@ trait CollectionReadTrait
      * derived collection that requires specific initialization.
      *
      * @param array $items
+     *
      * @return static
      */
     protected function createCollection(array $items)
     {
-        $collection = new static;
+        $collection = new static();
         $itemsRef = &$collection->items();
         $itemsRef = $items;
+
         return $collection;
     }
 
@@ -68,6 +70,7 @@ trait CollectionReadTrait
      * Checks that collections contains target item.
      *
      * @param $item
+     *
      * @return bool
      */
     public function contains($item)
@@ -97,14 +100,13 @@ trait CollectionReadTrait
     }
 
     /**
-     *
      * Iterates over each value in the <b>collection</b>
      * passing them to the <b>callback</b> function.
      * If the <b>callback</b> function returns true, the
      * current value from <b>collection</b> is returned into
      * the result collection.
      *
-     * @param callable $callback the callback function to use
+     * @param callable   $callback          the callback function to use
      * @param array|null $optionalArguments [optional] additional arguments passed to callback
      *
      * @return static filtered collection
@@ -114,24 +116,25 @@ trait CollectionReadTrait
         if ($optionalArguments !== null) {
             $callback = function ($item) use ($callback, $optionalArguments) {
                 $arguments = array_merge([$item], $optionalArguments);
+
                 return call_user_func_array($callback, $arguments);
             };
         }
         $filtered = array_filter($this->items(), $callback);
+
         return $this->createCollection($filtered);
     }
 
     /**
-     *
      * Iterates over each value in the <b>collection</b>
      * passing them to the <b>callback</b> function.
      * If the <b>callback</b> function returns true, the
      * current value from <b>collection</b> is returned.
      *
-     * @param callable $callback the callback function to use
+     * @param callable   $callback          the callback function to use
      * @param array|null $optionalArguments [optional] additional arguments passed to callback
      *
-     * @return static filtered collection
+     * @return mixed|FALSE collection item or false if item is not found.
      */
     public function find(callable $callback, array $optionalArguments = null)
     {
@@ -143,7 +146,8 @@ trait CollectionReadTrait
                 return $item;
             }
         }
-        return null;
+
+        return false;
     }
 
     public function isWritable()

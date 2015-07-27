@@ -1,4 +1,5 @@
 <?php
+
 namespace Nayjest\Collection\Decorator;
 
 use Nayjest\Collection\Collection;
@@ -23,16 +24,19 @@ class CompositeCollection implements CollectionReadInterface
 
     /**
      * @param array|CollectionReadInterface[] $collections
+     *
      * @return $this
      */
     public function setCollections(array $collections)
     {
         $this->collections = $collections;
+
         return $this;
     }
 
     /**
      * @param $index
+     *
      * @return CollectionReadInterface
      */
     public function getCollection($index)
@@ -46,6 +50,7 @@ class CompositeCollection implements CollectionReadInterface
     {
         $collection = new static();
         $collection->setCollections([new Collection($items)]);
+
         return $collection;
     }
 
@@ -57,6 +62,7 @@ class CompositeCollection implements CollectionReadInterface
     protected function &items()
     {
         $this->updateData();
+
         return $this->data;
     }
 

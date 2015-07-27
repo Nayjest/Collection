@@ -1,11 +1,12 @@
 <?php
+
 namespace Nayjest\Collection;
 
 use Countable;
 use IteratorAggregate;
 
 /**
- * Interface CollectionReadInterface
+ * Interface CollectionReadInterface.
  *
  * The interface describes methods of immutable collection.
  */
@@ -36,42 +37,41 @@ interface CollectionReadInterface extends IteratorAggregate, Countable
      * Checks that collections contains target item.
      *
      * @param $item
+     *
      * @return bool
      */
     public function contains($item);
 
     /**
-     *
      * Iterates over each value in the <b>collection</b>
      * passing them to the <b>callback</b> function.
      * If the <b>callback</b> function returns true, the
      * current value from <b>collection</b> is returned into
      * the result collection.
      *
-     * @param callable $callback the callback function to use
+     * @param callable   $callback          the callback function to use
      * @param array|null $optionalArguments [optional] additional arguments passed to callback
      *
      * @return static filtered collection
      */
     public function filter(callable $callback, array $optionalArguments = null);
 
-
     /**
-     *
      * Iterates over each value in the <b>collection</b>
      * passing them to the <b>callback</b> function.
      * If the <b>callback</b> function returns true, the
      * current value from <b>collection</b> is returned.
      *
-     * @param callable $callback the callback function to use
+     * @param callable   $callback          the callback function to use
      * @param array|null $optionalArguments [optional] additional arguments passed to callback
      *
-     * @return static filtered collection
+     * @return mixed|FALSE collection item or false if item is not found.
      */
     public function find(callable $callback, array $optionalArguments = null);
 
     /**
-     * Returns true if collection implements CollectionWriteInterface
+     * Returns true if collection implements CollectionWriteInterface.
+     *
      * @return bool
      */
     public function isWritable();

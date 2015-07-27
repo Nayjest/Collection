@@ -3,10 +3,9 @@
 namespace Nayjest\Collection;
 
 /**
- * Interface CollectionInterface
+ * Interface CollectionInterface.
  *
  * Collection interface.
- *
  */
 interface CollectionInterface extends
     CollectionReadInterface,

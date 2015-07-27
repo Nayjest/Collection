@@ -2,6 +2,13 @@
 
 namespace Nayjest\Collection;
 
+/**
+ * Class LazyLoadCollection.
+ *
+ * LazyLoadCollection is a collection that's initialized by callback
+ * when it's accessed first time.
+ *
+ */
 class LazyLoadCollection implements CollectionInterface
 {
     use CollectionTrait {
@@ -18,12 +25,12 @@ class LazyLoadCollection implements CollectionInterface
 
     protected function &items()
     {
-        if (!$this->initialized)
-        {
+        if (!$this->initialized) {
             $data = &$this->itemsInternal();
             $data = call_user_func($this->initializer);
             $this->initialized = true;
         }
+
         return $this->itemsInternal();
     }
 
@@ -34,6 +41,7 @@ class LazyLoadCollection implements CollectionInterface
      * derived collection that requires specific initialization.
      *
      * @param array $items
+     *
      * @return static
      */
     protected function createCollection(array $items)
