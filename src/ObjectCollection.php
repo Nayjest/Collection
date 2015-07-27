@@ -20,6 +20,6 @@ class ObjectCollection implements CollectionInterface
      */
     public function findByType($className)
     {
-        return $this->filter('is_a', [$className]);
+        return $this->find('is_a', [$className]);
     }
 }
