@@ -13,6 +13,6 @@ class Collection implements CollectionInterface
 
     public function __construct(array $items = null)
     {
-        $this->setItems($items ?: []);
+        $this->set($items ?: []);
     }
 }

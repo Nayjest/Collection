@@ -26,7 +26,7 @@ trait CollectionWriteTrait
      *
      * @return $this
      */
-    public function addItem($item, $prepend = false)
+    public function add($item, $prepend = false)
     {
         if ($prepend) {
             array_unshift($this->items(), $item);
@@ -76,7 +76,7 @@ trait CollectionWriteTrait
      *
      * @return $this
      */
-    public function addItems($items, $prepend = false)
+    public function addMany($items, $prepend = false)
     {
         if ($prepend) {
             # if items must be added to beginning, we need to reverse them
@@ -86,7 +86,7 @@ trait CollectionWriteTrait
             $items = array_reverse($items);
         }
         foreach ($items as $item) {
-            $this->addItem($item, $prepend);
+            $this->add($item, $prepend);
         }
 
         return $this;
@@ -99,11 +99,11 @@ trait CollectionWriteTrait
      *
      * @return $this
      */
-    public function setItems($items)
+    public function set($items)
     {
         $this->clear();
         foreach ($items as $item) {
-            $this->addItem($item);
+            $this->add($item);
         }
 
         return $this;
@@ -122,7 +122,7 @@ trait CollectionWriteTrait
     protected function createCollection(array $items)
     {
         $collection = new static();
-        $collection->setItems($items);
+        $collection->set($items);
 
         return $collection;
     }

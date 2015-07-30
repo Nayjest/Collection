@@ -1,6 +1,10 @@
 <?php
 
-namespace Nayjest\Collection;
+namespace Nayjest\Collection\Extended;
+
+use Nayjest\Collection\CollectionInterface;
+use Nayjest\Collection\CollectionTrait;
+use Nayjest\Collection\Collection;
 
 /**
  * Class LazyLoadCollection.
@@ -17,6 +21,11 @@ class LazyLoadCollection implements CollectionInterface
     private $initialized = false;
     private $initializer;
 
+    /**
+     * Constructor.
+     *
+     * @param callable $initializer callable that returns collection items.
+     */
     public function __construct(callable $initializer)
     {
         $this->initializer = $initializer;

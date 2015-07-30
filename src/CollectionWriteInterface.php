@@ -19,7 +19,7 @@ interface CollectionWriteInterface
      *
      * @return $this
      */
-    public function addItem($item, $prepend = false);
+    public function add($item, $prepend = false);
 
     /**
      * Adds items to collection.
@@ -29,7 +29,7 @@ interface CollectionWriteInterface
      *
      * @return $this
      */
-    public function addItems($items, $prepend = false);
+    public function addMany($items, $prepend = false);
 
     /**
      * Removes all items from collection.
@@ -54,5 +54,5 @@ interface CollectionWriteInterface
      *
      * @return $this
      */
-    public function setItems($items);
+    public function set($items);
 }
