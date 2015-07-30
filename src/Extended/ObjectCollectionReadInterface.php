@@ -1,0 +1,18 @@
+<?php
+
+namespace Nayjest\Collection\Extended;
+
+
+use Nayjest\Collection\CollectionReadInterface;
+
+interface ObjectCollectionReadInterface extends CollectionReadInterface
+{
+
+    public function findByType($className);
+
+    public function filterByType($className);
+
+    public function filterByProperty($propertyName, $value);
+
+    public function findByProperty($propertyName, $value);
+}

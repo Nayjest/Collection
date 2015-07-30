@@ -1,7 +1,7 @@
 <?php
 
 namespace Nayjest\Collection\Extended;
-use Nayjest\Collection\CollectionInterface;
+
 use Nayjest\Collection\CollectionTrait;
 
 /**
@@ -9,7 +9,7 @@ use Nayjest\Collection\CollectionTrait;
  *
  * Collection of objects.
  */
-class ObjectCollection implements CollectionInterface
+class ObjectCollection implements ObjectCollectionInterface
 {
     use CollectionTrait;
     use ObjectCollectionTrait;
