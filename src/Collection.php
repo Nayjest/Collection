@@ -10,9 +10,4 @@ namespace Nayjest\Collection;
 class Collection implements CollectionInterface
 {
     use CollectionTrait;
-
-    public function __construct(array $items = null)
-    {
-        $this->set($items ?: []);
-    }
 }

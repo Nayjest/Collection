@@ -10,4 +10,5 @@ trait CollectionTrait
         CollectionWriteTrait::createCollection
         insteadof CollectionReadTrait;
     }
+    use CollectionConstructorTrait;
 }
