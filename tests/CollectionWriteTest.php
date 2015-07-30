@@ -14,7 +14,7 @@ class CollectionWriteTest extends AbstractCollectionTest
     public function testAddItem()
     {
         self::assertFalse($this->collection->contains(989));
-        $res = $this->collection->addItem(989);
+        $res = $this->collection->add(989);
         self::assertEquals($this->collection, $res);
         self::assertTrue($this->collection->contains(989));
     }

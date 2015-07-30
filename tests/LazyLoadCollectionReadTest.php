@@ -2,7 +2,7 @@
 
 namespace Nayjest\Collection\Test;
 
-use Nayjest\Collection\LazyLoadCollection;
+use Nayjest\Collection\Extended\LazyLoadCollection;
 use RuntimeException;
 
 class LazyLoadCollectionReadTest extends AbstractCollectionReadTest
