@@ -31,6 +31,8 @@ interface CollectionWriteInterface
      */
     public function addMany($items, $prepend = false);
 
+    public function replace($oldItem, $newItem, $forceAdd = true);
+
     /**
      * Removes all items from collection.
      *

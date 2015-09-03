@@ -46,10 +46,39 @@ trait CollectionWriteTrait
      */
     public function remove($item)
     {
-        while (($key = array_search($item, $this->items(), true)) !== false) {
+        $keys = array_keys($this->items(), $item, true);
+        foreach($keys as $key) {
             unset($this->items()[$key]);
         }
+        return $this;
+    }
 
+    /**
+     * Replaces items equal to $oldItem to $newItem
+     *
+     * @param $oldItem
+     * @param $newItem
+     * @param bool $forceAdd [optional] true by default; will add $newItem to collection if there is no items equal to $oldItem
+     * @return $this
+     */
+    public function replace($oldItem, $newItem, $forceAdd = true)
+    {
+        $keys = array_keys($this->items(), $oldItem, true);
+        if (count($keys) === 0) {
+            if ($forceAdd) {
+                $this->add($newItem);
+            }
+        } else {
+            $this->remove($oldItem);
+            foreach($keys as $key) {
+                $this->add($newItem);
+                // move to old item position
+                $newKeys = array_keys($this->items(), $newItem, true);
+                $lastAddedKey = array_pop($newKeys);
+                $this->items()[$key] = $this->items()[$lastAddedKey];
+                unset($this->items()[$lastAddedKey]);
+            }
+        }
         return $this;
     }
 
