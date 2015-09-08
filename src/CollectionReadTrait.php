@@ -113,16 +113,10 @@ trait CollectionReadTrait
      */
     public function filter(callable $callback, array $optionalArguments = null)
     {
-        if ($optionalArguments !== null) {
-            $callback = function ($item) use ($callback, $optionalArguments) {
-                $arguments = array_merge([$item], $optionalArguments);
-
-                return call_user_func_array($callback, $arguments);
-            };
-        }
-        $filtered = array_filter($this->items(), $callback);
-
-        return $this->createCollection($filtered);
+        return $this->createCollection(array_filter(
+            $this->items(),
+            self::bindAdditionalArguments($callback, $optionalArguments)
+        ));
     }
 
     /**
@@ -153,5 +147,29 @@ trait CollectionReadTrait
     public function isWritable()
     {
         return $this instanceof CollectionWriteInterface;
+    }
+
+    /**
+     * @param callable   $callback          the callback function to use
+     * @param array|null $optionalArguments [optional] additional arguments passed to callback
+     * @return CollectionReadInterface
+     */
+    public function map(callable $callback, array $optionalArguments = null)
+    {
+        return $this->createCollection(array_map(
+            self::bindAdditionalArguments($callback, $optionalArguments),
+            $this->items()
+        ));
+    }
+
+    protected static function bindAdditionalArguments(callable $callback, array $additionalArguments = null)
+    {
+        if ($additionalArguments === null) {
+            return $callback;
+        }
+        return function ($item) use ($callback, $additionalArguments) {
+            $arguments = array_merge([$item], $additionalArguments);
+            return call_user_func_array($callback, $arguments);
+        };
     }
 }

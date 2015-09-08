@@ -70,6 +70,13 @@ interface CollectionReadInterface extends IteratorAggregate, Countable
     public function find(callable $callback, array $optionalArguments = null);
 
     /**
+     * @param callable   $callback          the callback function to use
+     * @param array|null $optionalArguments [optional] additional arguments passed to callback
+     * @return CollectionReadInterface
+     */
+    public function map(callable $callback, array $optionalArguments = null);
+
+    /**
      * Returns true if collection implements CollectionWriteInterface.
      *
      * @return bool
