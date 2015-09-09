@@ -15,7 +15,8 @@
         }
     ],
     "require": {
-        "php": ">=5.4.0"
+        "php": ">=5.4.0",
+        "nayjest/manipulator": "~1.2"
     },
     "require-dev": {
         "phpunit/phpunit": "~4.6",

@@ -109,7 +109,7 @@ trait CollectionReadTrait
      * @param callable   $callback          the callback function to use
      * @param array|null $optionalArguments [optional] additional arguments passed to callback
      *
-     * @return static filtered collection
+     * @return CollectionReadInterface|static filtered collection
      */
     public function filter(callable $callback, array $optionalArguments = null)
     {
@@ -144,15 +144,11 @@ trait CollectionReadTrait
         return false;
     }
 
-    public function isWritable()
-    {
-        return $this instanceof CollectionWriteInterface;
-    }
 
     /**
      * @param callable   $callback          the callback function to use
      * @param array|null $optionalArguments [optional] additional arguments passed to callback
-     * @return CollectionReadInterface
+     * @return CollectionReadInterface|static
      */
     public function map(callable $callback, array $optionalArguments = null)
     {
@@ -160,6 +156,22 @@ trait CollectionReadTrait
             self::bindAdditionalArguments($callback, $optionalArguments),
             $this->items()
         ));
+    }
+
+    /**
+     * @param callable $compareFunction
+     * @return CollectionReadInterface|static
+     */
+    public function sort(callable $compareFunction)
+    {
+        $items = $this->toArray();
+        usort($items, $compareFunction);
+        return $this->createCollection($items);
+    }
+
+    public function isWritable()
+    {
+        return $this instanceof CollectionWriteInterface;
     }
 
     protected static function bindAdditionalArguments(callable $callback, array $additionalArguments = null)

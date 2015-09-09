@@ -52,7 +52,7 @@ interface CollectionReadInterface extends IteratorAggregate, Countable
      * @param callable   $callback          the callback function to use
      * @param array|null $optionalArguments [optional] additional arguments passed to callback
      *
-     * @return static filtered collection
+     * @return CollectionReadInterface|static filtered collection
      */
     public function filter(callable $callback, array $optionalArguments = null);
 
@@ -72,9 +72,15 @@ interface CollectionReadInterface extends IteratorAggregate, Countable
     /**
      * @param callable   $callback          the callback function to use
      * @param array|null $optionalArguments [optional] additional arguments passed to callback
-     * @return CollectionReadInterface
+     * @return CollectionReadInterface|static
      */
     public function map(callable $callback, array $optionalArguments = null);
+
+    /**
+     * @param callable $compareFunction
+     * @return CollectionReadInterface|static
+     */
+    public function sort(callable $compareFunction);
 
     /**
      * Returns true if collection implements CollectionWriteInterface.
