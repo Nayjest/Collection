@@ -34,12 +34,11 @@ trait CollectionWriteTrait
      *
      * @param $item
      * @param bool $prepend false by default
-     * @param bool $ignoreCallbacks
      * @return $this
      */
-    public function add($item, $prepend = false, $ignoreCallbacks = false)
+    public function add($item, $prepend = false)
     {
-        if ($this->onItemAddCallbacks !== null && !$ignoreCallbacks) {
+        if ($this->onItemAddCallbacks !== null) {
             foreach($this->onItemAddCallbacks as $callback) {
                 $result = call_user_func($callback, $item, $this);
                 if ($result === false) {
