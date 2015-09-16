@@ -11,6 +11,8 @@ use Traversable;
  */
 interface CollectionWriteInterface
 {
+    public function onItemAdd(callable $callback);
+
     /**
      * Adds item to collection.
      *
@@ -25,7 +27,7 @@ interface CollectionWriteInterface
      * Adds items to collection.
      *
      * @param array|Traversable $items
-     * @param bool              $prepend false by default
+     * @param bool $prepend false by default
      *
      * @return $this
      */

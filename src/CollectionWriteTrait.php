@@ -18,16 +18,35 @@ trait CollectionWriteTrait
      */
     abstract protected function &items();
 
+    private $onItemAddCallbacks;
+
+    public function onItemAdd(callable $callback)
+    {
+        if (null === $this->onItemAddCallbacks) {
+            $this->onItemAddCallbacks = [$callback];
+        } else {
+            $this->onItemAddCallbacks[] = $callback;
+        }
+    }
+
     /**
      * Adds item to collection.
      *
      * @param $item
      * @param bool $prepend false by default
-     *
+     * @param bool $ignoreCallbacks
      * @return $this
      */
-    public function add($item, $prepend = false)
+    public function add($item, $prepend = false, $ignoreCallbacks = false)
     {
+        if ($this->onItemAddCallbacks !== null && !$ignoreCallbacks) {
+            foreach($this->onItemAddCallbacks as $callback) {
+                $result = call_user_func($callback, $item, $this);
+                if ($result === false) {
+                    return $this;
+                }
+            }
+        }
         if ($prepend) {
             array_unshift($this->items(), $item);
         } else {
