@@ -39,7 +39,7 @@ trait CollectionWriteTrait
     public function add($item, $prepend = false)
     {
         if ($this->onItemAddCallbacks !== null) {
-            foreach($this->onItemAddCallbacks as $callback) {
+            foreach ($this->onItemAddCallbacks as $callback) {
                 $result = call_user_func($callback, $item, $this);
                 if ($result === false) {
                     return $this;
@@ -65,7 +65,7 @@ trait CollectionWriteTrait
     public function remove($item)
     {
         $keys = array_keys($this->items(), $item, true);
-        foreach($keys as $key) {
+        foreach ($keys as $key) {
             unset($this->items()[$key]);
         }
         return $this;
@@ -88,7 +88,7 @@ trait CollectionWriteTrait
             }
         } else {
             $this->remove($oldItem);
-            foreach($keys as $key) {
+            foreach ($keys as $key) {
                 $this->add($newItem);
                 // move to old item position
                 $newKeys = array_keys($this->items(), $newItem, true);
