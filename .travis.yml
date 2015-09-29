@@ -27,8 +27,8 @@ before_script:
 script:
   - vendor/bin/phpunit
   - php phploc.phar --log-xml build/phploc.xml src
-  - php phpcs.phar
-  - php phpcs.phar --report=xml --report-file=build/phpcs.xml
+  - php phpcs.phar  || true
+  - php phpcs.phar --report=xml --report-file=build/phpcs.xml  || true
 after_script:
   - wget -c http://static.phpmd.org/php/latest/phpmd.phar
   - chmod +x phpmd.phar
