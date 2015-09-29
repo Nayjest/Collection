@@ -19,7 +19,18 @@ before_script:
   - travis_retry composer install --prefer-source --no-interaction --dev
   - wget https://phar.phpunit.de/phploc.phar
   - chmod +x phploc.phar
+  - wget https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar
+  - chmod +x phpcs.phar
 
 script:
   - vendor/bin/phpunit
   - php phploc.phar --log-xml build/phploc.xml src
+  - php phpcs.phar --report=xml --report-file=build/phpcs.xml
+after_script:
+  - wget -c http://static.phpmd.org/php/latest/phpmd.phar
+  - chmod +x phpmd.phar
+  - php phpmd.phar src xml cleancode,codesize,controversial,design,naming,unusedcode --reportfile build/phpmd/phpmd.xml || true
+  - php phpmd.phar src html cleancode,codesize,controversial,design,naming,unusedcode --reportfile build/phpmd/phpmd.html || true
+  - wget http://phpdox.de/releases/phpdox.phar
+  - chmod +x phpdox.phar
+  - php phpdox.phar

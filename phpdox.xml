@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<phpdox xmlns="http://xml.phpdox.net/config">
+    <project name="Nayjest\Collection" source="${basedir}/src" workdir="${basedir}/build/phpdox/xml">
+        <collector publiconly="false" backend="parser" encoding="auto"/>
+        <generator output="${basedir}/build/phpdox">
+            <build engine="html" output="html"/>
+            <enrich base="${basedir}">
+                <source type="git">
+                    <history enabled="true" limit="15" cache="${phpDox.project.workdir}/gitlog.xml" />
+                </source>
+                <!--
+                <source type="phpunit">
+                    <coverage path="build/phpunit" />
+                    <filter directory="${phpDox.project.source}" />
+                </source>
+                -->
+
+                <!-- PHP Code Sniffer -->
+                <source type="phpcs">
+                    <file name="build/phpcs.xml" />
+                </source>
+
+                <!-- PHP Code Sniffer -->
+                <source type="phploc">
+                    <file name="build/phploc.xml" />
+                </source>
+
+            </enrich>
+            <build engine="html" enabled="true" output="html">
+                <template dir="${phpDox.home}/templates/html" />
+            </build>
+        </generator>
+    </project>
+</phpdox>
