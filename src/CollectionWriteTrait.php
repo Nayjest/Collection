@@ -72,11 +72,13 @@ trait CollectionWriteTrait
     }
 
     /**
-     * Replaces items equal to $oldItem to $newItem
+     * Replaces items equal to $oldItem to $newItem.
+     *
+     * If $forceAdd is true, $newItem will be added to collection even if there is no $oldItem.
      *
      * @param $oldItem
      * @param $newItem
-     * @param bool $forceAdd [optional] true by default; will add $newItem to collection if there is no items equal to $oldItem
+     * @param bool $forceAdd [optional] true by default
      * @return $this
      */
     public function replace($oldItem, $newItem, $forceAdd = true)
