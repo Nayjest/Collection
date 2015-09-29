@@ -83,6 +83,12 @@ interface CollectionReadInterface extends IteratorAggregate, Countable
     public function sort(callable $compareFunction);
 
     /**
+     * Returns random collection element or NULL for empty collection.
+     * @return mixed|null
+     */
+    public function random();
+
+    /**
      * Returns true if collection implements CollectionWriteInterface.
      *
      * @return bool

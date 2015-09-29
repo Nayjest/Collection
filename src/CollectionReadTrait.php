@@ -169,6 +169,15 @@ trait CollectionReadTrait
         return $this->createCollection($items);
     }
 
+    /**
+     * @return mixed|null
+     */
+    public function random()
+    {
+        $index = array_rand($this->items());
+        return $index === null ? $this->items()[$index] : null;
+    }
+
     public function isWritable()
     {
         return $this instanceof CollectionWriteInterface;

@@ -19,7 +19,7 @@ abstract class AbstractCollectionTest extends PHPUnit_Framework_TestCase
      * @return CollectionReadInterface
      */
     abstract protected function makeCollection($data);
-    protected function fixture()
+    protected final function fixture()
     {
         return [1,2,3,4,5];
     }
