@@ -1,5 +1,7 @@
 language: php
-
+env:
+  global:
+    - secure: FASlaVLoMBIRGM2RL5Jw3n5IoseRNTWw43bkzFjjSGx8dVx89QCqdTjQq8Zm6eq1KncTJKHPmMV0hlAkUJfo5fxbYofXBQBHfAAPNJPQNrsa8WIFi9xa7SIpqcgZtWpO+yMEgit3wDWDOaUHAGpVV6XUIPwGVR9inTLjeQPQZ4SAyaOyacjpGVHwqdq88/oRt1FjfJUgQNr4vdmrqVclVpFuueAIsAsDHd5IccsUfNtEpygZUzO4qAs7FcHd6MHFfiSW1F3tLcdtCJx7zfVp8revWmF7QaHevWybAPiaxO3maD1jS32K6zim1fJFl/MIkwQYVhaFKeolYyx+tSj3gtiE9QZIrJNrV86Gt3WIwkT77E1VyaL1JW1w+2TxdkbYKfhVh+kGbNJ4wQPJXs6d8grtmErfeFRu4C7/hzkHD5LBUJsxjAejJ30bPSF7eAfaHjJEIMzuxBETrb2aCzgV2CaQ8SO83ItJnrO0JHQAECFWbINysSOeCYavRc/e3Wp4VQFSf/wy6mvo0ikxDf4bnGSCkQu36jLFANKshMn2IGVOG3zBsyF/k7d8BX7bADjt4UYXltDcGPP1/mZxmZUEMJuP6qCp3lrBGy1l9HjCDXZXiFckCSpco9jNO8B7xpbMHIb+OaCChuY0/dVsa5Hi1ZeUAGFFF/s4Yg9uc47LESM=
 php:
   - 5.4
   - 5.5
@@ -25,7 +27,8 @@ before_script:
 script:
   - vendor/bin/phpunit
   - php phploc.phar --log-xml build/phploc.xml src
-  - php phpcs.phar --report=xml --report-file=build/phpcs.xml || true
+  - php phpcs.phar
+  - php phpcs.phar --report=xml --report-file=build/phpcs.xml
 after_script:
   - wget -c http://static.phpmd.org/php/latest/phpmd.phar
   - chmod +x phpmd.phar

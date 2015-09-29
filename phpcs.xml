@@ -2,7 +2,6 @@
 <ruleset name="Nayjest\Collection">
     <description>The coding standard for Nayjest\Collection package</description>
     <file>./src</file>
-    <file>./tests</file>
     <rule ref="PSR1"/>
     <rule ref="PSR2"/>
 </ruleset>
