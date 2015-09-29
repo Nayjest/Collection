@@ -17,5 +17,9 @@ matrix:
 before_script:
   - composer self-update
   - travis_retry composer install --prefer-source --no-interaction --dev
+  - wget https://phar.phpunit.de/phploc.phar
+  - chmod +x phploc.phar
+
 script:
   - vendor/bin/phpunit
+  - php phploc.phar --log-xml build/phploc.xml src
