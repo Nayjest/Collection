@@ -175,7 +175,7 @@ trait CollectionReadTrait
     public function random()
     {
         $index = array_rand($this->items());
-        return $index === null ? $this->items()[$index] : null;
+        return $index === null ? null : $this->items()[$index];
     }
 
     public function isWritable()

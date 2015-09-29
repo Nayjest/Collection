@@ -81,7 +81,6 @@ abstract class AbstractCollectionReadTest extends AbstractCollectionTest
 
         $emptyCollection = $this->makeCollection([]);
         self::assertNull($emptyCollection->random());
-
     }
 
     public function testCount()
