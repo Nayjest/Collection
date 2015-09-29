@@ -78,8 +78,9 @@ abstract class AbstractCollectionReadTest extends AbstractCollectionTest
     {
         $item = $this->collection->random();
         self::assertTrue($item >= min($this->fixture()) && $item <= max($this->fixture()));
+
         $emptyCollection = $this->makeCollection([]);
-        var_dump($emptyCollection->random());
+        self::assertNull($emptyCollection->random());
 
     }
 
