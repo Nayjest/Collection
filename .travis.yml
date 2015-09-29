@@ -34,5 +34,5 @@ after_script:
   - chmod +x phpmd.phar
   - php phpmd.phar src xml cleancode,codesize,controversial,design,naming,unusedcode --reportfile build/phpmd/phpmd.xml || true
   - php phpmd.phar src html cleancode,codesize,controversial,design,naming,unusedcode --reportfile build/phpmd/phpmd.html || true
-  - echo "php: $TRAVIS_PHP_VERSION"
+  - echo "$TRAVIS_PHP_VERSION"
   - bash update_doc.sh
