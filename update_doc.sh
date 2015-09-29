@@ -1,3 +1,4 @@
+if [ "$TRAVIS_PHP_VERSION" == "5.4.37" ]
 wget http://phpdox.de/releases/phpdox.phar
 chmod +x phpdox.phar
 php phpdox.phar
@@ -12,3 +13,4 @@ cp -Rf ../phpdox/html/* ./
 git add -f .
 git commit -m "PHPDocumentor (Travis Build: $TRAVIS_BUILD_NUMBER@$TRAVIS_TAG)"
 git push -fq origin
+fi

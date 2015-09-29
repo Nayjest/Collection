@@ -17,7 +17,6 @@ matrix:
     - php: nightly
 
 before_script:
-  - echo "php: $TRAVIS_PHP_VERSION"
   - composer self-update
   - travis_retry composer install --prefer-source --no-interaction
   - wget https://phar.phpunit.de/phploc.phar
