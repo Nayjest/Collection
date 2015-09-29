@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>phpDox - Nayjest\Collection\Decorator\CompositeCollection</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li>
+          <a href="../traits.xhtml">Traits</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml#Nayjest_Collection_Decorator">Nayjest\Collection\Decorator</a>
+          </li>
+          <li class="separator">CompositeCollection</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#hierarchy">Hierarchy</a>
+          </li>
+          <li>
+            <a href="#members">Members</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="#history">History</a>
+          </li>
+          <li>
+            <a href="../source/Decorator/CompositeCollection.php.xhtml#line9">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>Nayjest\Collection\Decorator\</small>CompositeCollection</h1>
+        <h4/>
+        <p/>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class CompositeCollection
+                implements
+                <a title="Nayjest\Collection\CollectionReadInterface" href="../interfaces/Nayjest_Collection_CollectionReadInterface.xhtml">CollectionReadInterface</a>
+            {<br/><ul class="none"><li>// members</li><li>private array <a href="#members">$collections</a> =
+                        ;
+                    </li><li>private  <a href="#members">$data</a>;
+                    </li></ul><ul class="none"><li>// methods</li><li>public array <a title="Nayjest\Collection\Decorator\CompositeCollection" href="../classes/Nayjest_Collection_Decorator_CompositeCollection/getCollections.xhtml">getCollections</a>()
+                    </li><li>public $this <a title="Nayjest\Collection\Decorator\CompositeCollection" href="../classes/Nayjest_Collection_Decorator_CompositeCollection/setCollections.xhtml">setCollections</a>()
+                    </li><li>public CollectionReadInterface <a title="Nayjest\Collection\Decorator\CompositeCollection" href="../classes/Nayjest_Collection_Decorator_CompositeCollection/getCollection.xhtml">getCollection</a>()
+                    </li><li>protected void <a title="Nayjest\Collection\Decorator\CompositeCollection" href="../classes/Nayjest_Collection_Decorator_CompositeCollection/createCollection.xhtml">createCollection</a>()
+                    </li><li>protected array <a title="Nayjest\Collection\Decorator\CompositeCollection" href="../classes/Nayjest_Collection_Decorator_CompositeCollection/items.xhtml">items</a>()
+                    </li><li>private void <a title="Nayjest\Collection\Decorator\CompositeCollection" href="../classes/Nayjest_Collection_Decorator_CompositeCollection/updateData.xhtml">updateData</a>()
+                    </li></ul><ul class="none"><li>// Inherited methods from <span title="Nayjest\Collection\CollectionReadTrait">CollectionReadTrait</span></li><li>protected abstract array <a title="Nayjest\Collection\CollectionReadTrait" href="../traits/Nayjest_Collection_CollectionReadTrait/items.xhtml">items</a>()
+                        </li><li>protected CompositeCollection <a title="Nayjest\Collection\CollectionReadTrait" href="../traits/Nayjest_Collection_CollectionReadTrait/createCollection.xhtml">createCollection</a>()
+                        </li><li>public array <a title="Nayjest\Collection\CollectionReadTrait" href="../traits/Nayjest_Collection_CollectionReadTrait/toArray.xhtml">toArray</a>()
+                        </li><li>public bool <a title="Nayjest\Collection\CollectionReadTrait" href="../traits/Nayjest_Collection_CollectionReadTrait/isEmpty.xhtml">isEmpty</a>()
+                        </li><li>public void <a title="Nayjest\Collection\CollectionReadTrait" href="../traits/Nayjest_Collection_CollectionReadTrait/count.xhtml">count</a>()
+                        </li><li>public bool <a title="Nayjest\Collection\CollectionReadTrait" href="../traits/Nayjest_Collection_CollectionReadTrait/contains.xhtml">contains</a>()
+                        </li><li>public void <a title="Nayjest\Collection\CollectionReadTrait" href="../traits/Nayjest_Collection_CollectionReadTrait/getIterator.xhtml">getIterator</a>()
+                        </li><li>public mixed|null <a title="Nayjest\Collection\CollectionReadTrait" href="../traits/Nayjest_Collection_CollectionReadTrait/first.xhtml">first</a>()
+                        </li><li>public CollectionReadInterface|static <a title="Nayjest\Collection\CollectionReadTrait" href="../traits/Nayjest_Collection_CollectionReadTrait/filter.xhtml">filter</a>()
+                        </li><li>public mixed|FALSE <a title="Nayjest\Collection\CollectionReadTrait" href="../traits/Nayjest_Collection_CollectionReadTrait/find.xhtml">find</a>()
+                        </li><li>public CollectionReadInterface|static <a title="Nayjest\Collection\CollectionReadTrait" href="../traits/Nayjest_Collection_CollectionReadTrait/map.xhtml">map</a>()
+                        </li><li>public CollectionReadInterface|static <a title="Nayjest\Collection\CollectionReadTrait" href="../traits/Nayjest_Collection_CollectionReadTrait/sort.xhtml">sort</a>()
+                        </li><li>public mixed|null <a title="Nayjest\Collection\CollectionReadTrait" href="../traits/Nayjest_Collection_CollectionReadTrait/random.xhtml">random</a>()
+                        </li><li>public void <a title="Nayjest\Collection\CollectionReadTrait" href="../traits/Nayjest_Collection_CollectionReadTrait/isWritable.xhtml">isWritable</a>()
+                        </li><li>protected static void <a title="Nayjest\Collection\CollectionReadTrait" href="../traits/Nayjest_Collection_CollectionReadTrait/bindAdditionalArguments.xhtml">bindAdditionalArguments</a>()
+                        </li></ul>
+
+            }<br/></div>
+        <h2 id="hierarchy">Hierarchy</h2>
+        <div class="styled">
+          <h4>Uses</h4>
+          <ul>
+            <li>
+              <a title="Nayjest\Collection\CollectionReadTrait" href="../traits/Nayjest_Collection_CollectionReadTrait.xhtml">Nayjest\Collection\CollectionReadTrait</a>
+            </li>
+          </ul>
+          <h4>Implements</h4>
+          <ul>
+            <li>
+              <a title="Nayjest\Collection\CollectionReadInterface" href="../interfaces/Nayjest_Collection_CollectionReadInterface.xhtml">Nayjest\Collection\CollectionReadInterface</a>
+            </li>
+          </ul>
+        </div>
+        <h2 id="members">Members</h2>
+        <div class="styled members">
+          <h4>private</h4>
+          <ul class="members">
+            <li id="collections">
+              <strong>$collections</strong>
+              <br/>
+              <span class="indent">@var array|CollectionReadInterface[]</span>
+            </li>
+            <li id="data">
+              <strong>$data</strong>
+            </li>
+          </ul>
+        </div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h4>private</h4>
+          <ul>
+            <li id="updateData">
+              <a title="Nayjest\Collection\Decorator\CompositeCollection" href="../classes/Nayjest_Collection_Decorator_CompositeCollection/updateData.xhtml">updateData()</a>
+            </li>
+          </ul>
+          <h4>protected</h4>
+          <ul>
+            <li id="createCollection">
+              <a title="Nayjest\Collection\Decorator\CompositeCollection" href="../classes/Nayjest_Collection_Decorator_CompositeCollection/createCollection.xhtml">createCollection()</a>
+            </li>
+            <li id="items"><a title="Nayjest\Collection\Decorator\CompositeCollection" href="../classes/Nayjest_Collection_Decorator_CompositeCollection/items.xhtml">items()</a>
+                — Returns reference to array storing collection items.</li>
+          </ul>
+          <h4>public</h4>
+          <ul>
+            <li id="getCollection">
+              <a title="Nayjest\Collection\Decorator\CompositeCollection" href="../classes/Nayjest_Collection_Decorator_CompositeCollection/getCollection.xhtml">getCollection()</a>
+            </li>
+            <li id="getCollections">
+              <a title="Nayjest\Collection\Decorator\CompositeCollection" href="../classes/Nayjest_Collection_Decorator_CompositeCollection/getCollections.xhtml">getCollections()</a>
+            </li>
+            <li id="setCollections">
+              <a title="Nayjest\Collection\Decorator\CompositeCollection" href="../classes/Nayjest_Collection_Decorator_CompositeCollection/setCollections.xhtml">setCollections()</a>
+            </li>
+          </ul>
+          <h3>Inherited from <a title="Nayjest\Collection\CollectionReadTrait" href="../traits/Nayjest_Collection_CollectionReadTrait.xhtml">Nayjest\Collection\CollectionReadTrait</a></h3>
+          <h4>protected</h4>
+          <ul>
+            <li id="bindAdditionalArguments">
+              <a title="Nayjest\Collection\CollectionReadTrait" href="../traits/Nayjest_Collection_CollectionReadTrait/bindAdditionalArguments.xhtml">bindAdditionalArguments()</a>
+            </li>
+            <li id="createCollection"><a title="Nayjest\Collection\CollectionReadTrait" href="../traits/Nayjest_Collection_CollectionReadTrait/createCollection.xhtml">createCollection()</a>
+                — Creates collection of items.</li>
+            <li id="items"><a title="Nayjest\Collection\CollectionReadTrait" href="../traits/Nayjest_Collection_CollectionReadTrait/items.xhtml">items()</a>
+                — Returns reference to array storing collection items.</li>
+          </ul>
+          <h4>public</h4>
+          <ul>
+            <li id="contains"><a title="Nayjest\Collection\CollectionReadTrait" href="../traits/Nayjest_Collection_CollectionReadTrait/contains.xhtml">contains()</a>
+                — Checks that collections contains target item.</li>
+            <li id="count"><a title="Nayjest\Collection\CollectionReadTrait" href="../traits/Nayjest_Collection_CollectionReadTrait/count.xhtml">count()</a>
+                — {@inheritdoc}</li>
+            <li id="filter"><a title="Nayjest\Collection\CollectionReadTrait" href="../traits/Nayjest_Collection_CollectionReadTrait/filter.xhtml">filter()</a>
+                — Iterates over each value in the &lt;b&gt;collection&lt;/b&gt; passing them to the &lt;b&gt;callback&lt;/b&gt; function.</li>
+            <li id="find"><a title="Nayjest\Collection\CollectionReadTrait" href="../traits/Nayjest_Collection_CollectionReadTrait/find.xhtml">find()</a>
+                — Iterates over each value in the &lt;b&gt;collection&lt;/b&gt; passing them to the &lt;b&gt;callback&lt;/b&gt; function.</li>
+            <li id="first"><a title="Nayjest\Collection\CollectionReadTrait" href="../traits/Nayjest_Collection_CollectionReadTrait/first.xhtml">first()</a>
+                — Returns first item of the collection or null if collection is empty.</li>
+            <li id="getIterator"><a title="Nayjest\Collection\CollectionReadTrait" href="../traits/Nayjest_Collection_CollectionReadTrait/getIterator.xhtml">getIterator()</a>
+                — {@inheritdoc}</li>
+            <li id="isEmpty"><a title="Nayjest\Collection\CollectionReadTrait" href="../traits/Nayjest_Collection_CollectionReadTrait/isEmpty.xhtml">isEmpty()</a>
+                — Returns true if collection is empty.</li>
+            <li id="isWritable">
+              <a title="Nayjest\Collection\CollectionReadTrait" href="../traits/Nayjest_Collection_CollectionReadTrait/isWritable.xhtml">isWritable()</a>
+            </li>
+            <li id="map">
+              <a title="Nayjest\Collection\CollectionReadTrait" href="../traits/Nayjest_Collection_CollectionReadTrait/map.xhtml">map()</a>
+            </li>
+            <li id="random">
+              <a title="Nayjest\Collection\CollectionReadTrait" href="../traits/Nayjest_Collection_CollectionReadTrait/random.xhtml">random()</a>
+            </li>
+            <li id="sort">
+              <a title="Nayjest\Collection\CollectionReadTrait" href="../traits/Nayjest_Collection_CollectionReadTrait/sort.xhtml">sort()</a>
+            </li>
+            <li id="toArray"><a title="Nayjest\Collection\CollectionReadTrait" href="../traits/Nayjest_Collection_CollectionReadTrait/toArray.xhtml">toArray()</a>
+                — Returns collection items in array.</li>
+          </ul>
+        </div>
+        <h2 id="history">History</h2>
+        <ul class="styled history">
+          <li>
+            <h3>2015-07-27T15:40:14+00:00 (commit #<span title="59da59903c0549dac93a8b689bbd6a221e752b11">59da599</span>)</h3>
+            <div>
+              <p>
+                        Author: Vitaliy Stepanenko (mail@vitaliy.in) /
+                        Commiter: Vitaliy Stepanenko (mail@vitaliy.in)
+                    </p>
+              <pre class="wrapped">Code style fixes (StyleCI.io)</pre>
+            </div>
+          </li>
+          <li>
+            <h3>2015-07-14T23:42:30+00:00 (commit #<span title="eabf63c718ef913fe27fa69fd5e23fdaa386294e">eabf63c</span>)</h3>
+            <div>
+              <p>
+                        Author: Vitaliy Stepanenko (mail@vitaliy.in) /
+                        Commiter: Vitaliy Stepanenko (mail@vitaliy.in)
+                    </p>
+              <pre class="wrapped">Update CompositeCollection.php</pre>
+            </div>
+          </li>
+          <li>
+            <h3>2015-07-14T16:48:38+00:00 (commit #<span title="20e8779d8b45117e34b2f931068ab1cf73371978">20e8779</span>)</h3>
+            <div>
+              <p>
+                        Author: Vitaliy Stepanenko (mail@vitaliy.in) /
+                        Commiter: Vitaliy Stepanenko (mail@vitaliy.in)
+                    </p>
+              <pre class="wrapped">isWritable property added</pre>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </div>
+    <footer>
+      <span>Generated using phpDox 0.8.1.1 - Copyright (C) 2010 - 2015 by Arne Blankerts</span>
+    </footer>
+  </body>
+</html>
