@@ -1,4 +1,4 @@
-if [ "$TRAVIS_PHP_VERSION" == "5.4.37" ]
+if [ "$TRAVIS_PHP_VERSION" == "5.4.37" ] then
 wget http://phpdox.de/releases/phpdox.phar
 chmod +x phpdox.phar
 php phpdox.phar
