@@ -17,8 +17,9 @@ matrix:
     - php: nightly
 
 before_script:
+  - echo "php: $TRAVIS_PHP_VERSION"
   - composer self-update
-  - travis_retry composer install --prefer-source --no-interaction --dev
+  - travis_retry composer install --prefer-source --no-interaction
   - wget https://phar.phpunit.de/phploc.phar
   - chmod +x phploc.phar
   - wget https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar
@@ -34,4 +35,5 @@ after_script:
   - chmod +x phpmd.phar
   - php phpmd.phar src xml cleancode,codesize,controversial,design,naming,unusedcode --reportfile build/phpmd/phpmd.xml || true
   - php phpmd.phar src html cleancode,codesize,controversial,design,naming,unusedcode --reportfile build/phpmd/phpmd.html || true
+  - echo "php: $TRAVIS_PHP_VERSION"
   - bash update_doc.sh
