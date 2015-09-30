@@ -6,9 +6,7 @@ use Countable;
 use IteratorAggregate;
 
 /**
- * Interface CollectionReadInterface.
- *
- * The interface describes methods of immutable collection.
+ * CollectionReadInterface describes methods of immutable collection.
  */
 interface CollectionReadInterface extends IteratorAggregate, Countable
 {

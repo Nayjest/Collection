@@ -4,6 +4,11 @@ namespace Nayjest\Collection\Extended;
 
 use Nayjest\Manipulator\Manipulator;
 
+/**
+ * Implementation of methods added in ObjectCollectionReadInterface.
+ *
+ * ObjectCollectionTrait requires implementation of \Nayjest\Collection\CollectionReadInterface.
+ */
 trait ObjectCollectionTrait
 {
 

@@ -6,16 +6,21 @@ use Nayjest\Collection\Collection;
 use Nayjest\Collection\CollectionReadInterface;
 use Nayjest\Collection\CollectionReadTrait;
 
+/**
+ * Implementation of composite design pattern for collections.
+ *
+ * @package Nayjest\Collection\Decorator
+ */
 class CompositeCollection implements CollectionReadInterface
 {
     use CollectionReadTrait;
 
-    /** @var array|CollectionReadInterface[]  */
+    /** @var CollectionReadInterface[]  */
     private $collections = [];
     private $data;
 
     /**
-     * @return array
+     * @return CollectionReadInterface[]
      */
     public function getCollections()
     {
@@ -23,7 +28,7 @@ class CompositeCollection implements CollectionReadInterface
     }
 
     /**
-     * @param array|CollectionReadInterface[] $collections
+     * @param CollectionReadInterface[] $collections
      *
      * @return $this
      */
@@ -35,6 +40,8 @@ class CompositeCollection implements CollectionReadInterface
     }
 
     /**
+     * Returns composed collection by index
+     *
      * @param $index
      *
      * @return CollectionReadInterface

@@ -5,6 +5,9 @@ namespace Nayjest\Collection\Extended;
 use Nayjest\Collection\CollectionTrait;
 use Nayjest\Collection\Exceptions\InvalidItemException;
 
+/**
+ * Base class for typed collections.
+ */
 abstract class AbstractTypedObjectCollection implements ObjectCollectionInterface
 {
     use CollectionTrait {

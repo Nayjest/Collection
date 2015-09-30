@@ -5,9 +5,9 @@ namespace Nayjest\Collection\Extended;
 use Nayjest\Collection\CollectionTrait;
 
 /**
- * Class ObjectCollection.
- *
  * Collection of objects.
+ *
+ * ObjectCollection implements additional methods for working with collection of objects.
  */
 class ObjectCollection implements ObjectCollectionInterface
 {

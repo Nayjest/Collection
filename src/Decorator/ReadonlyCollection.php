@@ -6,6 +6,9 @@ use Nayjest\Collection\Collection;
 use Nayjest\Collection\CollectionReadInterface;
 use Nayjest\Collection\CollectionReadTrait;
 
+/**
+ * Collection wrapper that allows only operations for data reading.
+ */
 class ReadonlyCollection implements CollectionReadInterface
 {
     use CollectionReadTrait;
@@ -14,7 +17,9 @@ class ReadonlyCollection implements CollectionReadInterface
     private $data;
 
     /**
-     * @param CollectionReadInterface $collection
+     * Constructor.
+     *
+     * @param CollectionReadInterface $collection wrapped collection
      */
     public function __construct(CollectionReadInterface $collection)
     {

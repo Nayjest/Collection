@@ -5,9 +5,7 @@ namespace Nayjest\Collection;
 use Traversable;
 
 /**
- * Interface CollectionWriteInterface.
- *
- * The interface describes methods that changes collection.
+ * CollectionWriteInterface describes methods that changes collection.
  */
 interface CollectionWriteInterface
 {

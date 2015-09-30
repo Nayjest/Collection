@@ -2,9 +2,11 @@
 
 namespace Nayjest\Collection\Extended;
 
-
 use Nayjest\Collection\CollectionReadInterface;
 
+/**
+ * Collection read interface with additional methods for working with collection of objects.
+ */
 interface ObjectCollectionReadInterface extends CollectionReadInterface
 {
 

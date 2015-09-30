@@ -7,10 +7,10 @@ use Nayjest\Collection\CollectionTrait;
 use Nayjest\Collection\Collection;
 
 /**
- * Class LazyLoadCollection.
+ * Collection with deferred initialization (lazy load).
  *
- * LazyLoadCollection is a collection that's initialized by callback
- * when it's accessed first time.
+ * Initialization callback executes when accessing collection items first time.
+ *
  */
 class LazyLoadCollection implements CollectionInterface
 {
@@ -24,7 +24,10 @@ class LazyLoadCollection implements CollectionInterface
     /**
      * Constructor.
      *
-     * @param callable $initializer callable that returns collection items.
+     * Callback passed to $initializer argument
+     * will be executed when accessing collection items first time.
+     *
+     * @param callable $initializer callable that returns collection items
      */
     public function __construct(callable $initializer)
     {
