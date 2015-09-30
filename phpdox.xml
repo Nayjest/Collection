@@ -25,6 +25,10 @@
                     <file name="build/phploc.xml" />
                 </source>
 
+                <source type="pmd">
+                    <file name="build/phpmd.xml" />
+                </source>
+
             </enrich>
             <build engine="html" enabled="true" output="html">
                 <template dir="${phpDox.home}/templates/html" />
