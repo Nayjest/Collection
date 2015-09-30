@@ -4,11 +4,49 @@
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Nayjest/Collection/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Nayjest/Collection/?branch=master)
 [![Latest Stable Version](https://poser.pugx.org/nayjest/collection/v/stable)](https://packagist.org/packages/nayjest/collection)
 
-### Documentation
+
+## Requirements
+
+* php 5.4+  
+ 
+This package is not tested with [outdated versions of PHP](http://php.net/supported-versions.php). 
+
+If you need to use nayjest/builder in environments with php <= 5.3, test it on your own.
+
+## Installation
+
+The recommended way of installing the component is through [Composer](https://getcomposer.org).
+
+Run following command:
+
+```bash
+composer require nayjest/collection
+```
+
+## Documentation
 API Documentation is automatically generated and published to Github Pages on continuous integration server.
 
 See  [nayjest.github.io/Collection](http://nayjest.github.io/Collection/)
- 
 
-### License
-MIT
+## 5. Testing
+
+This package includes phpunit tests.
+
+Testing command:
+```bash
+vendor/bin/phpunit
+```
+
+
+## Security
+
+If you discover any security related issues, please email mail@vitaliy.in instead of using the issue tracker.
+
+## License
+
+© 2014 &mdash; 2015 Vitalii Stepanenko
+
+Licensed under the MIT License. 
+
+Please see [License File](LICENSE) for more information.
+
