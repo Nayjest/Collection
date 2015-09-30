@@ -28,7 +28,7 @@ API Documentation is automatically generated and published to Github Pages on co
 
 See  [nayjest.github.io/Collection](http://nayjest.github.io/Collection/)
 
-## 5. Testing
+## Testing
 
 This package includes phpunit tests.
 
