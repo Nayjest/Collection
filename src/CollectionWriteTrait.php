@@ -50,7 +50,7 @@ trait CollectionWriteTrait
 
     public function onItemRemove(callable $callback)
     {
-        $this->on('remove', $callback);
+        $this->on('item.remove', $callback);
     }
 
     public function onChange(callable $callback)
