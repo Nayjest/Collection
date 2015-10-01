@@ -11,6 +11,10 @@ interface CollectionWriteInterface
 {
     public function onItemAdd(callable $callback);
 
+    public function onItemRemove(callable $callback);
+
+    public function onChange(callable $callback);
+
     /**
      * Adds item to collection.
      *

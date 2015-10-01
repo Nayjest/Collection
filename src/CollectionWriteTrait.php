@@ -2,6 +2,7 @@
 
 namespace Nayjest\Collection;
 
+use Evenement\EventEmitterTrait;
 use Traversable;
 
 /**
@@ -11,6 +12,30 @@ use Traversable;
  */
 trait CollectionWriteTrait
 {
+    use EventEmitterTrait;
+
+    protected $onChangeAlreadyEmittedBy = false;
+
+    /**
+     * Emits onChange if not emitted before.
+     *
+     * @param string|bool $method if false, does not require calling endEmitOnChange
+     */
+    protected function emitOnChange($method = false)
+    {
+        if (!$this->onChangeAlreadyEmittedBy) {
+            $this->emit('change', [$this]);
+            $this->onChangeAlreadyEmittedBy = $method;
+        }
+    }
+
+    protected function endEmitOnChange($method)
+    {
+        if ($this->onChangeAlreadyEmittedBy === $method) {
+            $this->onChangeAlreadyEmittedBy = false;
+        }
+    }
+
     /**
      * Returns reference to array storing collection items.
      *
@@ -18,15 +43,19 @@ trait CollectionWriteTrait
      */
     abstract protected function &items();
 
-    private $onItemAddCallbacks;
-
     public function onItemAdd(callable $callback)
     {
-        if (null === $this->onItemAddCallbacks) {
-            $this->onItemAddCallbacks = [$callback];
-        } else {
-            $this->onItemAddCallbacks[] = $callback;
-        }
+        $this->on('item.add', $callback);
+    }
+
+    public function onItemRemove(callable $callback)
+    {
+        $this->on('remove', $callback);
+    }
+
+    public function onChange(callable $callback)
+    {
+        $this->on('change', $callback);
     }
 
     /**
@@ -38,14 +67,8 @@ trait CollectionWriteTrait
      */
     public function add($item, $prepend = false)
     {
-        if ($this->onItemAddCallbacks !== null) {
-            foreach ($this->onItemAddCallbacks as $callback) {
-                $result = call_user_func($callback, $item, $this);
-                if ($result === false) {
-                    return $this;
-                }
-            }
-        }
+        $this->emit('item.add', [$item, $this]);
+
         if ($prepend) {
             array_unshift($this->items(), $item);
         } else {
@@ -64,6 +87,9 @@ trait CollectionWriteTrait
      */
     public function remove($item)
     {
+        $this->emitOnChange();
+        $this->emit('item.remove', [$item, $this]);
+
         $keys = array_keys($this->items(), $item, true);
         foreach ($keys as $key) {
             unset($this->items()[$key]);
@@ -83,6 +109,7 @@ trait CollectionWriteTrait
      */
     public function replace($oldItem, $newItem, $forceAdd = true)
     {
+        $this->emitOnChange(__METHOD__);
         $keys = array_keys($this->items(), $oldItem, true);
         if (count($keys) === 0) {
             if ($forceAdd) {
@@ -99,6 +126,7 @@ trait CollectionWriteTrait
                 unset($this->items()[$lastAddedKey]);
             }
         }
+        $this->endEmitOnChange(__METHOD__);
         return $this;
     }
 
@@ -109,11 +137,18 @@ trait CollectionWriteTrait
      */
     public function clear()
     {
+        $this->emitOnChange(__METHOD__);
         $items = &$this->items();
+        if (count($this->listeners('item.remove'))) {
+            foreach ($items as $item) {
+                $this->emit('item.remove', [$item, $this]);
+            }
+        }
+
         // It's not mistake that $items never used after assigning empty array.
         // Yep, it really clears the collection.
         $items = [];
-
+        $this->endEmitOnChange(__METHOD__);
         return $this;
     }
 
@@ -121,12 +156,13 @@ trait CollectionWriteTrait
      * Adds items to collection.
      *
      * @param array|Traversable $items
-     * @param bool              $prepend false by default
+     * @param bool $prepend false by default
      *
      * @return $this
      */
     public function addMany($items, $prepend = false)
     {
+        $this->emitOnChange(__METHOD__);
         if ($prepend) {
             # if items must be added to beginning, we need to reverse them
             if (!is_array($items)) {
@@ -137,7 +173,7 @@ trait CollectionWriteTrait
         foreach ($items as $item) {
             $this->add($item, $prepend);
         }
-
+        $this->endEmitOnChange(__METHOD__);
         return $this;
     }
 
@@ -150,11 +186,12 @@ trait CollectionWriteTrait
      */
     public function set($items)
     {
+        $this->emitOnChange(__METHOD__);
         $this->clear();
         foreach ($items as $item) {
             $this->add($item);
         }
-
+        $this->endEmitOnChange(__METHOD__);
         return $this;
     }
 
