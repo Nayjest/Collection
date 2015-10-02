@@ -3,11 +3,12 @@
 namespace Nayjest\Collection;
 
 use Traversable;
+use Evenement\EventEmitterInterface;
 
 /**
  * CollectionWriteInterface describes methods that changes collection.
  */
-interface CollectionWriteInterface
+interface CollectionWriteInterface extends EventEmitterInterface
 {
     public function onItemAdd(callable $callback);
 
