@@ -15,9 +15,7 @@ class Registry implements ObjectCollectionReadInterface
 
     public function __construct(array $items = [])
     {
-        foreach ($items as $name => $item) {
-            $this->set($name, $item);
-        }
+        $this->setMany($items);
     }
 
     /**
