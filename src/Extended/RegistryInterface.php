@@ -12,6 +12,11 @@ interface RegistryInterface extends ObjectCollectionReadInterface
      */
     public function set($name, $item);
 
+    /**
+     * @param array $items
+     * @return $this
+     */
+    public function setMany(array $items);
 
     /**
      * @param string $itemName

@@ -33,6 +33,18 @@ class Registry implements ObjectCollectionReadInterface
     }
 
     /**
+     * @param array $items
+     * @return $this
+     */
+    public function setMany(array $items)
+    {
+        foreach ($items as $name => $item) {
+            $this->set($name, $item);
+        }
+        return $this;
+    }
+
+    /**
      * @param string $itemName
      * @return bool
      */
