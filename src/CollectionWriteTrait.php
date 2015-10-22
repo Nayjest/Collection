@@ -14,6 +14,10 @@ trait CollectionWriteTrait
 {
     use EventEmitterTrait;
 
+    /**
+     * used to avoid emitting multiple 'change' events in complex operations.
+     * @var bool
+     */
     protected $onChangeAlreadyEmittedBy = false;
 
     /**
@@ -43,19 +47,40 @@ trait CollectionWriteTrait
      */
     abstract protected function &items();
 
+    /**
+     * Adds event listener.
+     *
+     * @param callable $callback callback that accepts added item and collection as argument
+     * @return $this
+     */
     public function onItemAdd(callable $callback)
     {
         $this->on('item.add', $callback);
+        return $this;
     }
 
+    /**
+     * Adds event listener.
+     *
+     * @param callable $callback callback that accepts removed item and collection as argument
+     * @return $this
+     */
     public function onItemRemove(callable $callback)
     {
         $this->on('item.remove', $callback);
+        return $this;
     }
 
+    /**
+     * Adds event listener.
+     *
+     * @param callable $callback callback that accepts collection instance as argument
+     * @return $this
+     */
     public function onChange(callable $callback)
     {
         $this->on('change', $callback);
+        return $this;
     }
 
     /**
