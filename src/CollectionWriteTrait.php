@@ -67,6 +67,7 @@ trait CollectionWriteTrait
      */
     public function add($item, $prepend = false)
     {
+        $this->emitOnChange();
         $this->emit('item.add', [$item, $this]);
 
         if ($prepend) {
