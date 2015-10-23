@@ -17,4 +17,6 @@ interface ObjectCollectionReadInterface extends CollectionReadInterface
     public function filterByProperty($propertyName, $value);
 
     public function findByProperty($propertyName, $value);
+
+    public function sortByProperty($propertyName);
 }

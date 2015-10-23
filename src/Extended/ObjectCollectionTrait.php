@@ -68,7 +68,7 @@ trait ObjectCollectionTrait
     }
 
     /**
-     * @param $propertyName
+     * @param string $propertyName
      * @return static
      */
     public function sortByProperty($propertyName)
