@@ -12,8 +12,18 @@ use Nayjest\Manipulator\Manipulator;
 trait ObjectCollectionTrait
 {
 
+    /**
+     * @param callable $callback
+     * @param array|null $optionalArguments
+     * @return static
+     */
     abstract public function find(callable $callback, array $optionalArguments = null);
 
+    /**
+     * @param callable $callback
+     * @param array|null $optionalArguments
+     * @return static
+     */
     abstract public function filter(callable $callback, array $optionalArguments = null);
 
     /**
