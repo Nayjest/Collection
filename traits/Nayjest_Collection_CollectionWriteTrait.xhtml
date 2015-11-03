@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>phpDox - Nayjest\Collection\CollectionWriteTrait</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li>
+          <a href="../traits.xhtml">Traits</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../traits.xhtml">Traits</a>
+          </li>
+          <li class="separator">
+            <a href="../traits.xhtml#Nayjest_Collection">Nayjest\Collection</a>
+          </li>
+          <li class="separator">CollectionWriteTrait</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#hierarchy">Hierarchy</a>
+          </li>
+          <li>
+            <a href="#members">Members</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="#history">History</a>
+          </li>
+          <li>
+            <a href="../source/CollectionWriteTrait.php.xhtml#line13">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>Nayjest\Collection\</small>CollectionWriteTrait</h1>
+        <h4>Trait CollectionWriteTrait.</h4>
+        <p/>
+        <ul/>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">trait CollectionWriteTrait
+            {<br/><ul class="none"><li>// members</li><li>protected <span title="Nayjest\Collection\bool|string">bool|string</span> <a href="#members">$onChangeAlreadyEmittedBy</a> =
+                        false;
+                    </li></ul><ul class="none"><li>// methods</li><li>protected void <a title="Nayjest\Collection\CollectionWriteTrait" href="../traits/Nayjest_Collection_CollectionWriteTrait/emitOnChange.xhtml">emitOnChange</a>()
+                    </li><li>protected void <a title="Nayjest\Collection\CollectionWriteTrait" href="../traits/Nayjest_Collection_CollectionWriteTrait/endEmitOnChange.xhtml">endEmitOnChange</a>()
+                    </li><li>protected abstract array <a title="Nayjest\Collection\CollectionWriteTrait" href="../traits/Nayjest_Collection_CollectionWriteTrait/items.xhtml">items</a>()
+                    </li><li>public $this <a title="Nayjest\Collection\CollectionWriteTrait" href="../traits/Nayjest_Collection_CollectionWriteTrait/onItemAdd.xhtml">onItemAdd</a>()
+                    </li><li>public $this <a title="Nayjest\Collection\CollectionWriteTrait" href="../traits/Nayjest_Collection_CollectionWriteTrait/onItemRemove.xhtml">onItemRemove</a>()
+                    </li><li>public $this <a title="Nayjest\Collection\CollectionWriteTrait" href="../traits/Nayjest_Collection_CollectionWriteTrait/onChange.xhtml">onChange</a>()
+                    </li><li>public $this <a title="Nayjest\Collection\CollectionWriteTrait" href="../traits/Nayjest_Collection_CollectionWriteTrait/add.xhtml">add</a>()
+                    </li><li>public $this <a title="Nayjest\Collection\CollectionWriteTrait" href="../traits/Nayjest_Collection_CollectionWriteTrait/remove.xhtml">remove</a>()
+                    </li><li>public $this <a title="Nayjest\Collection\CollectionWriteTrait" href="../traits/Nayjest_Collection_CollectionWriteTrait/replace.xhtml">replace</a>()
+                    </li><li>public $this <a title="Nayjest\Collection\CollectionWriteTrait" href="../traits/Nayjest_Collection_CollectionWriteTrait/clear.xhtml">clear</a>()
+                    </li><li>public $this <a title="Nayjest\Collection\CollectionWriteTrait" href="../traits/Nayjest_Collection_CollectionWriteTrait/addMany.xhtml">addMany</a>()
+                    </li><li>public $this <a title="Nayjest\Collection\CollectionWriteTrait" href="../traits/Nayjest_Collection_CollectionWriteTrait/set.xhtml">set</a>()
+                    </li><li>protected CollectionWriteTrait <a title="Nayjest\Collection\CollectionWriteTrait" href="../traits/Nayjest_Collection_CollectionWriteTrait/createCollection.xhtml">createCollection</a>()
+                    </li></ul>
+
+            }<br/></div>
+        <h2 id="hierarchy">Hierarchy</h2>
+        <div class="styled">
+          <h4>Uses</h4>
+          <ul>
+            <li>
+              <a title="Evenement\EventEmitterTrait" href="../traits/Evenement_EventEmitterTrait.xhtml">Evenement\EventEmitterTrait</a>
+            </li>
+          </ul>
+        </div>
+        <h2 id="members">Members</h2>
+        <div class="styled members">
+          <h4>protected</h4>
+          <ul class="members">
+            <li id="onChangeAlreadyEmittedBy"><strong>$onChangeAlreadyEmittedBy</strong>
+                —
+                <a title="Nayjest\Collection\bool|string" href="../traits/Nayjest_Collection_bool|string.xhtml">Nayjest\Collection\bool|string</a><br/><span class="indent">used to avoid emitting multiple 'change' events in complex operations.</span></li>
+          </ul>
+        </div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h4>protected</h4>
+          <ul>
+            <li id="createCollection"><a title="Nayjest\Collection\CollectionWriteTrait" href="../traits/Nayjest_Collection_CollectionWriteTrait/createCollection.xhtml">createCollection()</a>
+                — Creates collection of items.</li>
+            <li id="emitOnChange"><a title="Nayjest\Collection\CollectionWriteTrait" href="../traits/Nayjest_Collection_CollectionWriteTrait/emitOnChange.xhtml">emitOnChange()</a>
+                — Emits onChange if not emitted before.</li>
+            <li id="endEmitOnChange">
+              <a title="Nayjest\Collection\CollectionWriteTrait" href="../traits/Nayjest_Collection_CollectionWriteTrait/endEmitOnChange.xhtml">endEmitOnChange()</a>
+            </li>
+            <li id="items"><a title="Nayjest\Collection\CollectionWriteTrait" href="../traits/Nayjest_Collection_CollectionWriteTrait/items.xhtml">items()</a>
+                — Returns reference to array storing collection items.</li>
+          </ul>
+          <h4>public</h4>
+          <ul>
+            <li id="add"><a title="Nayjest\Collection\CollectionWriteTrait" href="../traits/Nayjest_Collection_CollectionWriteTrait/add.xhtml">add()</a>
+                — Adds item to collection.</li>
+            <li id="addMany"><a title="Nayjest\Collection\CollectionWriteTrait" href="../traits/Nayjest_Collection_CollectionWriteTrait/addMany.xhtml">addMany()</a>
+                — Adds items to collection.</li>
+            <li id="clear"><a title="Nayjest\Collection\CollectionWriteTrait" href="../traits/Nayjest_Collection_CollectionWriteTrait/clear.xhtml">clear()</a>
+                — Removes all items from collection.</li>
+            <li id="onChange"><a title="Nayjest\Collection\CollectionWriteTrait" href="../traits/Nayjest_Collection_CollectionWriteTrait/onChange.xhtml">onChange()</a>
+                — Adds event listener.</li>
+            <li id="onItemAdd"><a title="Nayjest\Collection\CollectionWriteTrait" href="../traits/Nayjest_Collection_CollectionWriteTrait/onItemAdd.xhtml">onItemAdd()</a>
+                — Adds event listener.</li>
+            <li id="onItemRemove"><a title="Nayjest\Collection\CollectionWriteTrait" href="../traits/Nayjest_Collection_CollectionWriteTrait/onItemRemove.xhtml">onItemRemove()</a>
+                — Adds event listener.</li>
+            <li id="remove"><a title="Nayjest\Collection\CollectionWriteTrait" href="../traits/Nayjest_Collection_CollectionWriteTrait/remove.xhtml">remove()</a>
+                — Removes items equals to specified value from collection.</li>
+            <li id="replace"><a title="Nayjest\Collection\CollectionWriteTrait" href="../traits/Nayjest_Collection_CollectionWriteTrait/replace.xhtml">replace()</a>
+                — Replaces items equal to $oldItem to $newItem.</li>
+            <li id="set"><a title="Nayjest\Collection\CollectionWriteTrait" href="../traits/Nayjest_Collection_CollectionWriteTrait/set.xhtml">set()</a>
+                — Sets collection items.</li>
+          </ul>
+        </div>
+        <h2 id="history">History</h2>
+        <ul class="styled history">
+          <li>
+            <h3>2015-11-03T12:13:11+00:00 (commit #<span title="c3d75eff8baa56c9a4bf3c639289a2e2334d7273">c3d75ef</span>)</h3>
+            <div>
+              <p>
+                        Author: Vitaliy Stepanenko (mail@vitaliy.in) /
+                        Commiter: Vitaliy Stepanenko (mail@vitaliy.in)
+                    </p>
+              <pre class="wrapped">Code style, phpDoc</pre>
+            </div>
+          </li>
+          <li>
+            <h3>2015-10-22T12:27:44+00:00 (commit #<span title="44a918234ad8809982907a1f2001798dea7dc28b">44a9182</span>)</h3>
+            <div>
+              <p>
+                        Author: Vitaliy Stepanenko (mail@vitaliy.in) /
+                        Commiter: Vitaliy Stepanenko (mail@vitaliy.in)
+                    </p>
+              <pre class="wrapped">phpDoc, methods adding event listeners now returns $this</pre>
+            </div>
+          </li>
+          <li>
+            <h3>2015-10-22T12:06:10+00:00 (commit #<span title="cb14c4b593886572235f35c45689f8f40a87b7c5">cb14c4b</span>)</h3>
+            <div>
+              <p>
+                        Author: Vitaliy Stepanenko (mail@vitaliy.in) /
+                        Commiter: Vitaliy Stepanenko (mail@vitaliy.in)
+                    </p>
+              <pre class="wrapped">Fixed missing onchange event call when adding item, events system tests implemented</pre>
+            </div>
+          </li>
+          <li>
+            <h3>2015-10-01T15:01:17+00:00 (commit #<span title="b48516dd69d51e534c5ff4b468de18cafbbc94a3">b48516d</span>)</h3>
+            <div>
+              <p>
+                        Author: Vitaliy Stepanenko (mail@vitaliy.in) /
+                        Commiter: Vitaliy Stepanenko (mail@vitaliy.in)
+                    </p>
+              <pre class="wrapped">Fixed onRemoveItem()</pre>
+            </div>
+          </li>
+          <li>
+            <h3>2015-10-01T14:33:40+00:00 (commit #<span title="b7a555298a470b85fca0982a1038cd93f5c9ab39">b7a5552</span>)</h3>
+            <div>
+              <p>
+                        Author: Vitaliy Stepanenko (mail@vitaliy.in) /
+                        Commiter: Vitaliy Stepanenko (mail@vitaliy.in)
+                    </p>
+              <pre class="wrapped">Events system reworked</pre>
+            </div>
+          </li>
+          <li>
+            <h3>2015-09-29T17:36:10+00:00 (commit #<span title="027509ad3cdbddffb33a058593f1ae30316d87e5">027509a</span>)</h3>
+            <div>
+              <p>
+                        Author: Vitaliy Stepanenko (mail@vitaliy.in) /
+                        Commiter: Vitaliy Stepanenko (mail@vitaliy.in)
+                    </p>
+              <pre class="wrapped">Code style fix</pre>
+            </div>
+          </li>
+          <li>
+            <h3>2015-09-29T17:18:06+00:00 (commit #<span title="d28b129c914130e752a3642093240484ef167231">d28b129</span>)</h3>
+            <div>
+              <p>
+                        Author: Vitaliy Stepanenko (mail@vitaliy.in) /
+                        Commiter: Vitaliy Stepanenko (mail@vitaliy.in)
+                    </p>
+              <pre class="wrapped">Code style fixes</pre>
+            </div>
+          </li>
+          <li>
+            <h3>2015-09-16T19:10:23+00:00 (commit #<span title="2cd5a00bb8abf6f0bd88d9d96caed393c00cfbbc">2cd5a00</span>)</h3>
+            <div>
+              <p>
+                        Author: Vitaliy Stepanenko (mail@vitaliy.in) /
+                        Commiter: Vitaliy Stepanenko (mail@vitaliy.in)
+                    </p>
+              <pre class="wrapped">bugfix</pre>
+            </div>
+          </li>
+          <li>
+            <h3>2015-09-16T18:51:30+00:00 (commit #<span title="ec1dd80157004b5bec28b723dde6df01934a8634">ec1dd80</span>)</h3>
+            <div>
+              <p>
+                        Author: Vitaliy Stepanenko (mail@vitaliy.in) /
+                        Commiter: Vitaliy Stepanenko (mail@vitaliy.in)
+                    </p>
+              <pre class="wrapped">onItemAdd() method added</pre>
+            </div>
+          </li>
+          <li>
+            <h3>2015-09-03T15:01:15+00:00 (commit #<span title="a46aabb67fac4a3bdd36be9f8c1619442be2159b">a46aabb</span>)</h3>
+            <div>
+              <p>
+                        Author: Vitaliy Stepanenko (mail@vitaliy.in) /
+                        Commiter: Vitaliy Stepanenko (mail@vitaliy.in)
+                    </p>
+              <pre class="wrapped">replace method added</pre>
+            </div>
+          </li>
+          <li>
+            <h3>2015-07-30T17:24:11+00:00 (commit #<span title="3b9c451feb83f95b7d4dc6b125b43c2da07fbc3f">3b9c451</span>)</h3>
+            <div>
+              <p>
+                        Author: Vitaliy Stepanenko (mail@vitaliy.in) /
+                        Commiter: Vitaliy Stepanenko (mail@vitaliy.in)
+                    </p>
+              <pre class="wrapped">ObjectCollection introduced</pre>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </div>
+    <footer>
+      <span>Generated using phpDox 0.8.1.1 - Copyright (C) 2010 - 2015 by Arne Blankerts</span>
+    </footer>
+  </body>
+</html>
