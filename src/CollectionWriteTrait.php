@@ -16,7 +16,7 @@ trait CollectionWriteTrait
 
     /**
      * used to avoid emitting multiple 'change' events in complex operations.
-     * @var bool
+     * @var bool|string
      */
     protected $onChangeAlreadyEmittedBy = false;
 
