@@ -96,18 +96,14 @@ trait ObjectCollectionTrait
 
     private function getPropertyComparator($propertyName, $value, $useGetters)
     {
-        $methodName = $useGetters ? 'get' . (string)(\Stringy\create($propertyName)->upperCamelize()) : false;
-
-        return function ($item) use ($propertyName, $value, $methodName) {
-            return (
-                isset($item->{$propertyName})
-                && $item->{$propertyName} === $value
-            ) || (
-                $methodName !== false
-                && method_exists($item, $methodName)
-                && call_user_func([$item, $methodName]) === $value
-            );
-
-        };
+        if ($useGetters) {
+            return function ($item) use ($propertyName, $value) {
+                return Manipulator::getValue($item, $propertyName, NAN) === $value;
+            };
+        } else {
+            return function ($item) use ($propertyName, $value) {
+                return isset($item->{$propertyName}) && $item->{$propertyName} === $value;
+            };
+        }
     }
 }
