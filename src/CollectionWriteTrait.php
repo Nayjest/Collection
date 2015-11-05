@@ -179,7 +179,7 @@ trait CollectionWriteTrait
     }
 
     /**
-     * Adds items to collection.
+     * Adds multiple items to collection.
      *
      * @param array|Traversable $items
      * @param bool $prepend false by default
@@ -204,7 +204,7 @@ trait CollectionWriteTrait
     }
 
     /**
-     * Sets collection items.
+     * Removes old and sets new collection items.
      *
      * @param array|Traversable $items
      *

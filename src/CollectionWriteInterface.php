@@ -27,7 +27,7 @@ interface CollectionWriteInterface extends EventEmitterInterface
     public function add($item, $prepend = false);
 
     /**
-     * Adds items to collection.
+     * Adds multiple to collection.
      *
      * @param array|Traversable $items
      * @param bool $prepend false by default
@@ -55,7 +55,7 @@ interface CollectionWriteInterface extends EventEmitterInterface
     public function remove($item);
 
     /**
-     * Sets collection items.
+     * Removes old and sets new collection items.
      *
      * @param array|Traversable $items
      *
