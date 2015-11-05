@@ -24,6 +24,9 @@ composer require nayjest/collection
 ```
 
 ## Documentation
+
+[Nayjest\Collection\Collection Class Reference](docs/collection.md)
+
 API Documentation is automatically generated and published to Github Pages on continuous integration server.
 
 See  [nayjest.github.io/Collection](http://nayjest.github.io/Collection/)
