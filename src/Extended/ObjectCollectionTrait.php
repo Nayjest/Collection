@@ -2,7 +2,7 @@
 
 namespace Nayjest\Collection\Extended;
 
-use Nayjest\Manipulator\Manipulator;
+use mp;
 
 /**
  * Implementation of methods added in ObjectCollectionReadInterface.
@@ -85,8 +85,8 @@ trait ObjectCollectionTrait
     {
 
         return $this->sort(function ($itemA, $itemB) use ($propertyName) {
-            $a = Manipulator::getValue($itemA, $propertyName, 0);
-            $b = Manipulator::getValue($itemB, $propertyName, 0);
+            $a = mp\getValue($itemA, $propertyName, 0);
+            $b = mp\getValue($itemB, $propertyName, 0);
             if ($a < $b) {
                 return -1;
             }
@@ -98,7 +98,8 @@ trait ObjectCollectionTrait
     {
         if ($useGetters) {
             return function ($item) use ($propertyName, $value) {
-                return Manipulator::getValue($item, $propertyName, NAN) === $value;
+                // NAN used as default because NAN !== NAN
+                return mp\getValue($item, $propertyName, NAN) === $value;
             };
         } else {
             return function ($item) use ($propertyName, $value) {
