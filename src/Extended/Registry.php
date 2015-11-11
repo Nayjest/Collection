@@ -19,14 +19,14 @@ class Registry implements ObjectCollectionReadInterface
     }
 
     /**
-     * @param string $name
+     * @param string $key
      * @param object|null $item
      * @return $this
      */
-    public function set($name, $item)
+    public function set($key, $item)
     {
-        $this->emit('change', [$name, $item, $this]);
-        $this->items()[$name] = $item;
+        $this->emit('change', [$key, $item, $this]);
+        $this->items()[$key] = $item;
         return $this;
     }
 
@@ -43,23 +43,23 @@ class Registry implements ObjectCollectionReadInterface
     }
 
     /**
-     * @param string $itemName
+     * @param string $key
      * @return bool
      */
-    public function has($itemName)
+    public function hasKey($key)
     {
-        $keyExists = array_key_exists($itemName, $this->items());
-        return $keyExists && $this->items()[$itemName] !== null;
+        $keyExists = array_key_exists($key, $this->items());
+        return $keyExists && $this->items()[$key] !== null;
     }
 
 
     /**
-     * @param string $itemName
+     * @param string $key
      * @return null|object
      */
-    public function get($itemName)
+    public function get($key)
     {
-        return $this->has($itemName) ? $this->items()[$itemName] : null;
+        return $this->hasKey($key) ? $this->items()[$key] : null;
     }
 
     /**

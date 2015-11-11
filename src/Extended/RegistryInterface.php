@@ -6,11 +6,11 @@ namespace Nayjest\Collection\Extended;
 interface RegistryInterface extends ObjectCollectionReadInterface
 {
     /**
-     * @param string $name
+     * @param string $key
      * @param object|null $item
      * @return $this
      */
-    public function set($name, $item);
+    public function set($key, $item);
 
     /**
      * @param array $items
@@ -19,16 +19,16 @@ interface RegistryInterface extends ObjectCollectionReadInterface
     public function setMany(array $items);
 
     /**
-     * @param string $itemName
+     * @param string $key
      * @return bool
      */
-    public function has($itemName);
+    public function hasKey($key);
 
     /**
-     * @param string $itemName
+     * @param string $key
      * @return null|object
      */
-    public function get($itemName);
+    public function get($key);
 
     public function onChange(callable $callback);
 }
