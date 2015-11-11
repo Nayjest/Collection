@@ -20,13 +20,27 @@ class Registry implements RegistryInterface
 
     /**
      * @param string $key
-     * @param object|null $item
+     * @param object $item
      * @return $this
      */
     public function set($key, $item)
     {
         $this->emit('change', [$key, $item, $this]);
         $this->items()[$key] = $item;
+        return $this;
+    }
+
+    /**
+     * @param string $key
+     * @return $this
+     */
+    public function removeByKey($key)
+    {
+        $items = $this->items();
+        if (array_key_exists($key, $items)) {
+            $this->emit('change', [$key, null, $this]);
+            unset($items[$key]);
+        }
         return $this;
     }
 

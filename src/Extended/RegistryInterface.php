@@ -7,7 +7,7 @@ interface RegistryInterface extends ObjectCollectionReadInterface
 {
     /**
      * @param string $key
-     * @param object|null $item
+     * @param object $item
      * @return $this
      */
     public function set($key, $item);
@@ -23,6 +23,13 @@ interface RegistryInterface extends ObjectCollectionReadInterface
      * @return bool
      */
     public function hasKey($key);
+
+
+    /**
+     * @param string $key
+     * @return $this
+     */
+    public function removeByKey($key);
 
     /**
      * @param string $key
