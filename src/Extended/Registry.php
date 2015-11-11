@@ -6,7 +6,7 @@ use Evenement\EventEmitterTrait;
 use Nayjest\Collection\CollectionDataTrait;
 use Nayjest\Collection\CollectionReadTrait;
 
-class Registry implements ObjectCollectionReadInterface
+class Registry implements RegistryInterface
 {
     use CollectionDataTrait;
     use CollectionReadTrait;
@@ -51,7 +51,6 @@ class Registry implements ObjectCollectionReadInterface
         $keyExists = array_key_exists($key, $this->items());
         return $keyExists && $this->items()[$key] !== null;
     }
-
 
     /**
      * @param string $key
