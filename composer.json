@@ -16,7 +16,7 @@
     ],
     "require": {
         "php": ">=5.4.0",
-        "nayjest/manipulator": "^2|^3",
+        "nayjest/manipulator": "^2||^3",
         "evenement/evenement": "2.0.*"
     },
     "require-dev": {
