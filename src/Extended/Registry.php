@@ -36,7 +36,7 @@ class Registry implements RegistryInterface
      */
     public function removeByKey($key)
     {
-        $items = $this->items();
+        $items = &$this->items();
         if (array_key_exists($key, $items)) {
             $this->emit('change', [$key, null, $this]);
             unset($items[$key]);
