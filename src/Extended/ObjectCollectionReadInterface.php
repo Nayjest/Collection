@@ -10,6 +10,13 @@ use Nayjest\Collection\CollectionReadInterface;
 interface ObjectCollectionReadInterface extends CollectionReadInterface
 {
 
+    /**
+     * Finds collection element by (parent) class or interface.
+     * @see is_a
+     *
+     * @param string $className
+     * @return mixed
+     */
     public function findByType($className);
 
     /**
