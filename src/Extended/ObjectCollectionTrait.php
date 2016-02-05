@@ -26,6 +26,8 @@ trait ObjectCollectionTrait
      */
     abstract public function filter(callable $callback, array $optionalArguments = null);
 
+    abstract public function toArray();
+
     /**
      * @param callable $compareFunction
      * @return static
@@ -118,7 +120,7 @@ trait ObjectCollectionTrait
     public function indexByProperty($propertyName)
     {
         $results = [];
-        foreach($this as $item) {
+        foreach($this->toArray() as $item) {
             $key = mp\getValue($item, $propertyName);
             if ($key) {
                 $results[$key] = $item;
