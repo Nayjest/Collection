@@ -21,10 +21,10 @@
     },
     "require-dev": {
         "phpunit/phpunit": "^4.6",
-        "danielstjules/stringy": "^1.9|^2"
+        "danielstjules/stringy": "^1.9||^2"
     },
     "suggest": {
-        "danielstjules/stringy": "Required filter ObjectCollection by properties with getters"
+        "danielstjules/stringy": "Required to filter ObjectCollection by properties with getters"
     },
     "autoload": {
         "psr-4": {
