@@ -107,4 +107,23 @@ trait ObjectCollectionTrait
             };
         }
     }
+
+    /**
+     * Returns array indexed by specified property of collection elements.
+     * If there is few elements with same property value, last will be used.
+     *
+     * @param string $propertyName
+     * @return array|object[]
+     */
+    public function indexByProperty($propertyName)
+    {
+        $results = [];
+        foreach($this as $item) {
+            $key = mp\getValue($item, $propertyName);
+            if ($key) {
+                $results[$key] = $item;
+            }
+        }
+        return $results;
+    }
 }

@@ -42,4 +42,13 @@ interface ObjectCollectionReadInterface extends CollectionReadInterface
      * @return self
      */
     public function sortByProperty($propertyName);
+
+    /**
+     * Returns array indexed by specified property of collection elements.
+     * If there is few elements with same property value, last will be used.
+     *
+     * @param string $propertyName
+     * @return array|object[]
+     */
+    public function indexByProperty($propertyName);
 }
