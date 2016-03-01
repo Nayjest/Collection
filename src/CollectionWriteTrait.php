@@ -94,11 +94,11 @@ trait CollectionWriteTrait
     {
         $this->emitOnChange();
         $this->emit('item.add', [$item, $this]);
-
+        $items = &$this->items();
         if ($prepend) {
-            array_unshift($this->items(), $item);
+            array_unshift($items, $item);
         } else {
-            $this->items()[] = $item;
+            $items[] = $item;
         }
 
         return $this;
