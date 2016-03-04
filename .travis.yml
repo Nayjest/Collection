@@ -11,9 +11,6 @@ php:
   - nightly
 matrix:
   allow_failures:
-    - php: 7.0
-    - php: hhvm
-    - php: hhvm-nightly
     - php: nightly
 
 before_script:
@@ -25,7 +22,7 @@ before_script:
   - chmod +x phpcs.phar
 
 script:
-  - vendor/bin/phpunit
+  - composer test
   - php phploc.phar --log-xml build/phploc.xml src
   - php phpcs.phar  || true
   - php phpcs.phar --report=xml --report-file=build/phpcs.xml  || true
