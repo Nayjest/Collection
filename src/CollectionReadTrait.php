@@ -196,7 +196,10 @@ trait CollectionReadTrait
      */
     public function random()
     {
-        $index = array_rand($this->items());
+        if ($this->isEmpty()) {
+            return null;
+        }
+        $index = array_rand($this->items(), 1);
         return $index === null ? null : $this->items()[$index];
     }
 
