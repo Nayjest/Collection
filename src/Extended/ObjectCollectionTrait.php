@@ -120,7 +120,7 @@ trait ObjectCollectionTrait
     public function indexByProperty($propertyName)
     {
         $results = [];
-        foreach($this->toArray() as $item) {
+        foreach ($this->toArray() as $item) {
             $key = mp\getValue($item, $propertyName);
             if ($key) {
                 $results[$key] = $item;

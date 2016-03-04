@@ -2,7 +2,6 @@
 
 namespace Nayjest\Collection\Extended;
 
-
 interface RegistryInterface extends ObjectCollectionReadInterface
 {
     /**

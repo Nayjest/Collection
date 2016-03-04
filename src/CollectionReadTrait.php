@@ -106,7 +106,7 @@ trait CollectionReadTrait
      * current value from <b>collection</b> is returned into
      * the result collection.
      *
-     * @param callable   $callback          the callback function to use
+     * @param callable $callback the callback function to use
      * @param array|null $optionalArguments [optional] additional arguments passed to callback
      *
      * @return CollectionReadInterface|static filtered collection
@@ -125,7 +125,7 @@ trait CollectionReadTrait
      * If the <b>callback</b> function returns true, the
      * current value from <b>collection</b> is returned.
      *
-     * @param callable   $callback          the callback function to use
+     * @param callable $callback the callback function to use
      * @param array|null $optionalArguments [optional] additional arguments passed to callback
      *
      * @return mixed|FALSE collection item or false if item is not found.
@@ -146,7 +146,7 @@ trait CollectionReadTrait
 
 
     /**
-     * @param callable   $callback          the callback function to use
+     * @param callable $callback the callback function to use
      * @param array|null $optionalArguments [optional] additional arguments passed to callback
      * @return CollectionReadInterface|static
      */
@@ -179,7 +179,7 @@ trait CollectionReadTrait
         foreach ($items as &$item) {
             $item = [$index++, $item];
         }
-        usort($items, function($a, $b) use($compareFunction) {
+        usort($items, function ($a, $b) use ($compareFunction) {
             $result = call_user_func($compareFunction, $a[1], $b[1]);
             return $result == 0 ? $a[0] - $b[0] : $result;
         });
