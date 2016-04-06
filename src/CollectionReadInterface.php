@@ -87,6 +87,18 @@ interface CollectionReadInterface extends IteratorAggregate, Countable
     public function random();
 
     /**
+     * @param $item
+     * @return CollectionReadInterface|static
+     */
+    public function beforeItem($item);
+
+    /**
+     * @param $item
+     * @return CollectionReadInterface|static
+     */
+    public function afterItem($item);
+
+    /**
      * Returns true if collection implements CollectionWriteInterface.
      *
      * @return bool

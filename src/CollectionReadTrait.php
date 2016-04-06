@@ -4,6 +4,7 @@ namespace Nayjest\Collection;
 
 use ArrayIterator;
 use IteratorIterator;
+use RuntimeException;
 
 /**
  * Trait CollectionReadTrait.
@@ -201,6 +202,54 @@ trait CollectionReadTrait
         }
         $index = array_rand($this->items(), 1);
         return $index === null ? null : $this->items()[$index];
+    }
+
+    /**
+     * @param $item
+     * @return CollectionReadInterface|static
+     */
+    public function beforeItem($item)
+    {
+        if (!$this->contains($item)) {
+            throw new RuntimeException(
+                'Can\'t select collection items before target element'
+                . ' because collection does not contain target element'
+            );
+        }
+        $items = [];
+        foreach ($this->items() as $i) {
+            if ($i === $item) {
+                break;
+            }
+            $items[] = $i;
+        }
+        return $this->createCollection($items);
+    }
+
+    /**
+     * @param $item
+     * @return CollectionReadInterface|static
+     */
+    public function afterItem($item)
+    {
+        if (!$this->contains($item)) {
+            throw new RuntimeException(
+                'Can\'t select collection items before target element'
+                . ' because collection does not contain target element'
+            );
+        }
+        $items = [];
+        $found = false;
+        foreach ($this->items() as $i) {
+            if ($i === $item) {
+                $found = true;
+                continue;
+            }
+            if ($found) {
+                $items[] = $i;
+            }
+        }
+        return $this->createCollection($items);
     }
 
     public function isWritable()
