@@ -40,7 +40,7 @@
         "email": "mail@vitaliy.in"
     },
     "scripts": {
-        "test": "phpunit"
+        "test": "php vendor/phpunit/phpunit/phpunit"
     },
     "minimum-stability": "dev"
 }
