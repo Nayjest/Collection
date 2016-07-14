@@ -11,17 +11,20 @@
          syntaxCheck="false"
 >
     <testsuites>
-        <testsuite name="nayjest/collection Package Test Suite">
-            <directory suffix=".php">./tests/</directory>
+        <testsuite name="unit">
+            <directory suffix=".php">./tests/unit</directory>
+        </testsuite>
+        <testsuite name="phpt">
+            <directory suffix=".phpt">./tests/phpt</directory>
         </testsuite>
     </testsuites>
     <filter>
-        <whitelist processUncoveredFilesFromWhitelist="true">
+        <whitelist processUncoveredFilesFromWhitelist="false">
             <directory suffix=".php">./src</directory>
         </whitelist>
     </filter>
     <logging>
-        <log type="coverage-clover" target="build/phpunit/index.xml"/>
-        <log type="coverage-html" target="build/phpunit/html"/>
+        <log type="coverage-clover" target="./build/phpunit/index.xml"/>
+        <log type="coverage-html" target="./build/phpunit/html"/>
     </logging>
 </phpunit>

@@ -1,24 +1,23 @@
 <?php
 
-namespace Nayjest\Collection\Test;
+namespace Nayjest\Collection\Test\Base;
 
-use Nayjest\Collection\Collection;
-use Nayjest\Collection\CollectionReadInterface;
+use Nayjest\Collection\CollectionInterface;
 use PHPUnit_Framework_TestCase;
 
 abstract class AbstractCollectionTest extends PHPUnit_Framework_TestCase
 {
     /**
-     * @var Collection
+     * @var CollectionInterface
      */
     protected $collection;
 
     /**
      * @param $data
      *
-     * @return CollectionReadInterface
+     * @return CollectionInterface
      */
-    abstract protected function makeCollection($data);
+    abstract protected function make($data);
     protected final function fixture()
     {
         return [1,2,3,4,5];
@@ -26,6 +25,6 @@ abstract class AbstractCollectionTest extends PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->collection = $this->makeCollection($this->fixture());
+        $this->collection = $this->make($this->fixture());
     }
 }
