@@ -2,13 +2,14 @@
 
 namespace Nayjest\Collection;
 
+use ArrayAccess;
 use Countable;
 use IteratorAggregate;
 
 /**
- * CollectionReadInterface describes methods of immutable collection.
+ * CollectionReadInterface describes methods for reading from collection.
  */
-interface CollectionReadInterface extends IteratorAggregate, Countable
+interface CollectionReadInterface extends IteratorAggregate, Countable, ArrayAccess
 {
     /**
      * Returns collection items in array.
@@ -31,6 +32,8 @@ interface CollectionReadInterface extends IteratorAggregate, Countable
      */
     public function first();
 
+    public function last();
+
     /**
      * Checks that collections contains target item.
      *
@@ -39,6 +42,19 @@ interface CollectionReadInterface extends IteratorAggregate, Countable
      * @return bool
      */
     public function contains($item);
+    public function has($item);
+
+    public function indexOf($item);
+
+    public function hasKey($offset);
+    public function offsetExists($offset);
+
+    public function get($key, $default = null);
+    public function offsetGet($offset);
+
+    public function getKeys();
+
+    public function getValues();
 
     /**
      * Iterates over each value in the <b>collection</b>
@@ -48,11 +64,10 @@ interface CollectionReadInterface extends IteratorAggregate, Countable
      * the result collection.
      *
      * @param callable   $callback          the callback function to use
-     * @param array|null $optionalArguments [optional] additional arguments passed to callback
      *
      * @return CollectionReadInterface|static filtered collection
      */
-    public function filter(callable $callback, array $optionalArguments = null);
+    public function filter(callable $callback);
 
     /**
      * Iterates over each value in the <b>collection</b>
@@ -61,18 +76,16 @@ interface CollectionReadInterface extends IteratorAggregate, Countable
      * current value from <b>collection</b> is returned.
      *
      * @param callable   $callback          the callback function to use
-     * @param array|null $optionalArguments [optional] additional arguments passed to callback
      *
      * @return mixed|FALSE collection item or false if item is not found.
      */
-    public function find(callable $callback, array $optionalArguments = null);
+    public function find(callable $callback);
 
     /**
      * @param callable   $callback          the callback function to use
-     * @param array|null $optionalArguments [optional] additional arguments passed to callback
      * @return CollectionReadInterface|static
      */
-    public function map(callable $callback, array $optionalArguments = null);
+    public function map(callable $callback);
 
     /**
      * @param callable $compareFunction
@@ -80,28 +93,50 @@ interface CollectionReadInterface extends IteratorAggregate, Countable
      */
     public function sort(callable $compareFunction);
 
+    public function slice($offset, $length = null);
+
     /**
      * Returns random collection element or NULL for empty collection.
      * @return mixed|null
      */
     public function random();
 
-    /**
-     * @param $item
-     * @return CollectionReadInterface|static
-     */
-    public function beforeItem($item);
+//    /**
+//     * @param $item
+//     * @return CollectionReadInterface|static
+//     */
+//    public function beforeItem($item);
+//
+//    /**
+//     * @param $item
+//     * @return CollectionReadInterface|static
+//     */
+//    public function afterItem($item);
+//
+//    /**
+//     * Returns true if collection implements CollectionWriteInterface.
+//     *
+//     * @return bool
+//     */
+//    public function isWritable();
 
     /**
-     * @param $item
-     * @return CollectionReadInterface|static
+     * @param string $className
+     * @return static
      */
-    public function afterItem($item);
+    public function filterByType($className);
 
     /**
-     * Returns true if collection implements CollectionWriteInterface.
-     *
-     * @return bool
+     * @param string $propertyName
+     * @param $value
+     * @return static
      */
-    public function isWritable();
+    public function filterByProperty($propertyName, $value);
+
+    /**
+     * @param string $propertyName
+     * @param $value
+     * @return mixed
+     */
+    public function findByProperty($propertyName, $value);
 }
